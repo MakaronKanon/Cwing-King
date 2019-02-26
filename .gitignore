@@ -1,0 +1,11 @@
+# Remove output folder for MD407
+Debug/ 
+
+# This file is automaticly added by codelite
+cwingking.mk 
+
+# I think this file is just junk that needs to be removed
+test.s
+
+# Remove output folder for windows
+windowsout/
