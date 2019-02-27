@@ -20,6 +20,10 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <VirtualDirectory Name="snake">
+      <File Name="src/snake/snake.c"/>
+      <File Name="src/snake/snake.h"/>
+    </VirtualDirectory>
     <File Name="src/keycodes.h"/>
     <File Name="src/input.h"/>
     <File Name="src/graphics.c"/>

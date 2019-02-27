@@ -9,7 +9,18 @@ int getKeyDown(unsigned char keyCode)
 	if (keyCode == KEYCODE_RIGHT)
 	{
 		return state[SDL_SCANCODE_RIGHT];
-
+	}
+	if (keyCode == KEYCODE_LEFT)
+	{
+		return state[SDL_SCANCODE_LEFT];
+	}
+	if (keyCode == KEYCODE_DOWN)
+	{
+		return state[SDL_SCANCODE_DOWN];
+	}
+	if (keyCode == KEYCODE_UP)
+	{
+		return state[SDL_SCANCODE_UP];
 	}
 	/*
 	switch (keyCode)

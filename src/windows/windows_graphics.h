@@ -6,3 +6,5 @@ void displayBuffer();
 void initGraphics();
 
 void cleanUpGraphics();
+
+void clearBuffer();

@@ -30,6 +30,7 @@ typedef volatile unsigned int portType;
 
 #ifdef MD407
 
+
 void init_app()
 {
 	// 7seg-disp port D0-7
@@ -57,9 +58,16 @@ void out7seg(unsigned char c) {
 #include "delay.h"
 #include "keycodes.h"
 #include "input.h"
+#include "snake.h"
+
+void update();
+void render();
+
+Snake snake;
 
 void main(void)
 {	
+	initSnake(&snake);
 	initGraphics();
 	
 	for (int x = 0; x < 128; x++)
@@ -78,24 +86,28 @@ void main(void)
 	displayBuffer();
 	delayMilliSecs(1000);
 	
-	while (!getKeyDown(KEYCODE_RIGHT))
+	int playing = 1;
+	
+	while (playing)
 	{
 		
+		/*
+		if (getKeyDown(KEYCODE_RIGHT))
+		{
+			playing = 0;
+		}
+		*/
+		update();
+		clearBuffer();
+		render();
+		displayBuffer();
+		
+		// 30fps -> 1/30 = 33ms each frame
+		delayMilliSecs(33); // Somewhat target 30 fps.
 	}
 
 	
 	cleanUpGraphics();
-	
-	
-		
-	/*
-	// Our game loop
-	while (true)
-	{
-		
-		// 30fps -> 1/30 = 33ms each frame
-		delayMilliSecs(33); // Somewhat target 30 fps.
-	}*/
 	
 	
 	#ifdef WINDOWS
@@ -109,3 +121,14 @@ void main(void)
 	#endif
 }
 
+void update()
+{
+	// The update loop
+	snake.update(&snake);
+}
+
+void render()
+{
+	// Render to buffer
+	snake.render(&snake);
+}

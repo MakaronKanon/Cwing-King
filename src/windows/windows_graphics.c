@@ -77,6 +77,10 @@ static void putPixel(SDL_Surface* surface, unsigned int x, unsigned int y, Uint3
 
 void setPixel(int x, int y, int set)
 {
+	if (x > 127 || x < 0 || y < 0 || y > 63)
+	{
+		return; // invalid range
+	}
 	buffer[x][y] = set;
 }
 
@@ -108,6 +112,17 @@ void displayBuffer()
 		}
 	}
 	SDL_UpdateWindowSurface(window);
+}
+
+void clearBuffer()
+{
+	for (int x = 0; x < 128; x++)
+	{
+		for (int y = 0; y < 64; y++)
+		{
+			buffer[x][y] = 0;
+		}
+	}
 }
 
 #endif
