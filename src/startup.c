@@ -55,6 +55,8 @@ void out7seg(unsigned char c) {
 
 #include "graphics.h"
 #include "delay.h"
+#include "keycodes.h"
+#include "input.h"
 
 void main(void)
 {	
@@ -75,6 +77,11 @@ void main(void)
 	
 	displayBuffer();
 	delayMilliSecs(1000);
+	
+	while (!getKeyDown(KEYCODE_RIGHT))
+	{
+		
+	}
 
 	
 	cleanUpGraphics();

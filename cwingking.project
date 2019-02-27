@@ -20,6 +20,7 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="src/keycodes.h"/>
     <File Name="src/input.h"/>
     <File Name="src/graphics.c"/>
     <File Name="src/delay.h"/>
@@ -31,6 +32,7 @@
       <File Name="src/md407/md407_graphics.c"/>
     </VirtualDirectory>
     <VirtualDirectory Name="windows">
+      <File Name="src/windows/windows_input.c"/>
       <File Name="src/windows/windows_input.h"/>
       <File Name="src/windows/windows_delay.h"/>
       <File Name="src/windows/windows_delay.c"/>
