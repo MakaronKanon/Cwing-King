@@ -4,6 +4,7 @@
 #include "input.h"
 #include "snake.h"
 #include "platform_init.h"
+#include "platform.h"
 
 void update();
 void render();
@@ -16,19 +17,13 @@ void main(void)
 	
 	initSnake(&snake);
 	initGraphics();
-	
-	int playing = 1;
-	
-	while (playing)
+		
+	while (1)
 	{
-		
-		/*
-		if (getKeyDown(KEYCODE_RIGHT))
+		if (platform_should_exit())
 		{
-			playing = 0;
+			break;
 		}
-		*/
-		
 		
 		update();
 		render();
