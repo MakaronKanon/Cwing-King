@@ -2,18 +2,21 @@
 
 void setPixel(int x, int y, int set)
 {
-	
+	void setPixelBuffer(unsigned int x, unsigned int y, int set);
+	setPixelBuffer(x, y, set);
 }
 
 // Renders to screen what is on the buffer
 void displayBuffer()
 {
-	
+	void swapBuffers();
+	swapBuffers();
 }
 
 void initGraphics()
 {
-	
+	void graphic_initialize();
+	graphic_initialize();
 }
 
 void cleanUpGraphics()
