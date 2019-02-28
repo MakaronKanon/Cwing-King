@@ -1,6 +1,6 @@
 # Makefile for generating executable for Windows ??x86??
 
-o_files = windowsout/startup.o windowsout/windows_graphics.o windowsout/windows_delay.o windowsout/windows_input.o windowsout/snake.o
+o_files = windowsout/startup.o windowsout/windows_graphics.o windowsout/windows_delay.o windowsout/windows_input.o windowsout/snake.o windowsout/windows_init.o
 
 h_includes = -I src/snake
 
@@ -23,6 +23,9 @@ windowsout/windows_input.o: src/windows/windows_input.c
 
 windowsout/snake.o: src/snake/snake.c
 	gcc -c src/snake/snake.c -D WINDOWS -o windowsout/snake.o -I src/windows -I src/windows/SDL/include/SDL2 -I src -I src/snake
+
+windowsout/windows_init.o: src/windows/windows_init.c
+	gcc -c src/windows/windows_init.c -D WINDOWS -o windowsout/windows_init.o -I src/windows -I src/windows/SDL/include/SDL2 -I src
 
 clean:
 	rm $(o_files) windowsout/cwingking.exe

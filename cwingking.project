@@ -20,6 +20,7 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="src/platform_init.h"/>
     <VirtualDirectory Name="snake">
       <File Name="src/snake/snake.c"/>
       <File Name="src/snake/snake.h"/>
@@ -31,6 +32,8 @@
     <File Name="src/startup.c"/>
     <File Name="src/graphics.h"/>
     <VirtualDirectory Name="md407">
+      <File Name="src/md407/md407_init.c"/>
+      <File Name="src/md407/md407_init.h"/>
       <File Name="src/md407/md407_input.c"/>
       <File Name="src/md407/md407_types.h"/>
       <File Name="src/md407/md407_display_constants.h"/>
@@ -43,6 +46,8 @@
       <File Name="src/md407/md407_graphics.c"/>
     </VirtualDirectory>
     <VirtualDirectory Name="windows">
+      <File Name="src/windows/windows_init.c"/>
+      <File Name="src/windows/windows_init.h"/>
       <File Name="src/windows/windows_input.c"/>
       <File Name="src/windows/windows_input.h"/>
       <File Name="src/windows/windows_delay.h"/>
