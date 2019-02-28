@@ -1,3 +1,4 @@
+#ifdef WINDOWS
 #include "SDL.h"
 #include "keycodes.h"
 
@@ -31,3 +32,4 @@ int getKeyDown(unsigned char keyCode)
 	*/
 	return 0;
 }
+#endif //WINDOWS

@@ -1,0 +1,7 @@
+#ifndef MD407_SETTINGS_H
+#define MD407_SETTINGS_H
+
+#define SIMULATOR
+//#define USBDM
+
+#endif //MD407_SETTINGS_H
