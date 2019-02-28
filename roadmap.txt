@@ -1,0 +1,12 @@
+Done:
+* Pusha till git.
+* Skapa en init rutin
+* Få så vi kan göra exit
+
+Cwing King mål:
+* Få igång pong så den kan äta och bli längre
+* Gör så man förlorar om man åker utanför banan
+* Ha en splash-screen, dels att den skriver till ascii-display, dels att den ritar sprite på graphic display.
+* Skapa en bättre makefile
+* Få simple pong att köra på simulatorn
+* Få cwing king att funka på windows (och simulatorn)
