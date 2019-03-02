@@ -5,7 +5,7 @@
 
 void platform_init()
 {
-	printf("Welcome to Cwing King!\n");
-	delayMilliSecs(1000);
+	printf("Starting Cwing King on windows!\n");
+	delayMilliSecs(500);
 }
 #endif

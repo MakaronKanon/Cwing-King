@@ -5,6 +5,7 @@
 #include "snake.h"
 #include "platform_init.h"
 #include "platform.h"
+#include "asciidisplay.h"
 
 void update();
 void render();
@@ -17,7 +18,9 @@ void main(void)
 	
 	initSnake(&snake);
 	initGraphics();
-		
+	
+	displayAscii("Welcome to Cwing King!");
+	
 	while (1)
 	{
 		if (platform_should_exit())

@@ -1,4 +1,5 @@
 #include "md407_ports.h"
+#include "md407_asciidisplay.h"
 
 
 void startup(void) __attribute__((naked)) __attribute__((section (".start_section")) );
@@ -24,6 +25,7 @@ void platform_init()
 	// 7seg-disp port D0-7
 	
 	// Ställ in GPIO_MODER
+
     portDNew->moder &= 0x0000FFFF;
     portDNew->moder |= 0x55000000;
 
@@ -32,5 +34,8 @@ void platform_init()
 
     portDNew->pupdr &= 0x0000FFFF;
     portDNew->pupdr |= 0x00AA0000;
-    
+
+	// init ascii
+	ascii_init();
+
 }
