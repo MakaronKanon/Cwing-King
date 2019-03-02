@@ -64,14 +64,29 @@ int getKeyDown(unsigned char keyCode)
 	unsigned char keyDown = keyb();
 	if (keyCode == KEYCODE_RIGHT)
 	{
-		if (keyDown == 5)
+		if (keyDown == 6)
 		{
 			return 1;
 		}
 	}
 	else if (keyCode == KEYCODE_LEFT)
 	{
-		if (keyDown == 3)
+		if (keyDown == 4)
+		{
+			return 1;
+		}
+	}
+    
+    	else if (keyCode == KEYCODE_UP)
+	{
+		if (keyDown == 2)
+		{
+			return 1;
+		}
+	}
+    	else if (keyCode == KEYCODE_DOWN)
+	{
+		if (keyDown == 8)
 		{
 			return 1;
 		}

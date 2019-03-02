@@ -24,6 +24,13 @@ void platform_init()
 	// 7seg-disp port D0-7
 	
 	// Ställ in GPIO_MODER
-	*portD &= 0xFFFF0000;
-	*portD |= 0x00005555;
+    portDNew->moder &= 0x0000FFFF;
+    portDNew->moder |= 0x55000000;
+
+    portDNew->otyper &= 0xFFFF00FF;
+    portDNew->otyper |= 0x00000F00;
+
+    portDNew->pupdr &= 0x0000FFFF;
+    portDNew->pupdr |= 0x00AA0000;
+    
 }

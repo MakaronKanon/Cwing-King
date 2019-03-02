@@ -23,11 +23,6 @@
     <File Name="src/platform.h"/>
     <File Name="src/platform_init.h"/>
     <VirtualDirectory Name="snake">
-      <File Name="src/snake/gameobjects.h"/>
-      <File Name="src/snake/gameobjects.c"/>
-      <File Name="src/snake/gameobject.h"/>
-      <File Name="src/snake/food.h"/>
-      <File Name="src/snake/food.c"/>
       <File Name="src/snake/snake.c"/>
       <File Name="src/snake/snake.h"/>
     </VirtualDirectory>
