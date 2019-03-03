@@ -19,12 +19,13 @@ static void render(obstacle *this)
 
 }
 
-static void DetectCollision(int x, int y, obstacle* this)
+static void DetectCollision(int x, int y, obstacle* this, Snake* snake)
 {
     
     if(((x <= (this->xPos + this->width)) && (x >= this->xPos)) && ((y <= this->yPos) && (y >= (this->yPos - this->hight))))
     {
-        displayAscii("hit!", "");
+		snake->dead = 1;
+        //displayAscii("hit!", "");
     } 
 }
 
@@ -41,7 +42,7 @@ static void updateObstacle(obstacle* this, Snake* snake)
     //checks if any of the players 4 corers overlap with the obstacle 
 	for(int c=0; c<4; ++c) 
     {
-        DetectCollision(corners[c][0], corners[c][1], this);
+        DetectCollision(corners[c][0], corners[c][1], this, snake);
     }
 }
 

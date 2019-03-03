@@ -13,6 +13,8 @@ typedef struct tSnake
 	void (*update)(struct tSnake* snake);
 	void (*render)(struct tSnake* snake);
 	
+	int dead;
+	
 } Snake;
 
 void initSnake(Snake* snake);

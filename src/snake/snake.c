@@ -47,6 +47,7 @@ void initSnake(Snake* snake)
 	snake->xDir = 1;
 	snake->yDir = 1;
 	snake->size = 4;
+	snake->dead = 0;
 	
 	snake->render = renderSnake;
 	snake->update = updateSnake;

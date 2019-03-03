@@ -11,17 +11,31 @@
 
 void update();
 void render();
+void playonegame();
 
 Snake snake;
+int shouldExit = 0;
 
 void main(void)
 {	
 	platform_init();
 	
-	initSnake(&snake);
 	initGraphics();
     createObstecle();
 		
+	while(!shouldExit)
+	{
+		initSnake(&snake);
+
+		playonegame();
+	}
+
+	
+	cleanUpGraphics();
+}
+
+void playonegame()
+{
 	displaySplashScreen();
 	
 	displayAscii("Welcome to Cwing King!", "this will be a challenge.");
@@ -30,6 +44,12 @@ void main(void)
 	{
 		if (platform_should_exit())
 		{
+			shouldExit = 1;
+			break;
+		}
+		if (snake.dead)
+		{
+			snake.dead = 0;
 			break;
 		}
 		
@@ -42,9 +62,6 @@ void main(void)
 		delayMilliSecs(33); // Somewhat target 30 fps.
 		delayMilliSecs(60); //tempdelay
 	}
-
-	
-	cleanUpGraphics();
 }
 
 void update()
