@@ -1,7 +1,8 @@
 # Makefile for generating executable for Windows ??x86??
 
 o_files = windowsout/startup.o windowsout/windows_graphics.o windowsout/windows_delay.o windowsout/windows_input.o windowsout/snake.o windowsout/windows_init.o \
-windowsout/windows_platform.o windowsout/obstacle.o windowsout/windows_asciidisplay.o windowsout/splashScreen.o
+windowsout/windows_platform.o windowsout/obstacle.o windowsout/windows_asciidisplay.o windowsout/splashScreen.o \
+windowsout/gameoverScreen.o
 
 h_includes = -I src/snake -I src/windows -I src/windows/SDL/include -I src/windows/SDL/include/SDL2 -I src
 
@@ -41,6 +42,9 @@ windowsout/windows_asciidisplay.o: src/windows/windows_asciidisplay.c
 
 windowsout/splashScreen.o: src/splashScreen.c
 	gcc -g -c src/splashScreen.c $(define_flags) -o windowsout/splashScreen.o $(h_includes)
+
+windowsout/gameoverScreen.o: src/gameoverScreen.c
+	gcc -g -c src/gameoverScreen.c $(define_flags) -o windowsout/gameoverScreen.o $(h_includes)
 
 clean:
 	rm $(o_files) windowsout/cwingking.exe

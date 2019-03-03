@@ -8,6 +8,7 @@
 #include "obstacle.h"
 #include "asciidisplay.h"
 #include "splashScreen.h"
+#include "gameoverScreen.h"
 
 void update();
 void render();
@@ -50,6 +51,8 @@ void playonegame()
 		if (snake.dead)
 		{
 			snake.dead = 0;
+			// Show gameover screen before we jump out
+			displayGameoverScreen(10);
 			break;
 		}
 		
