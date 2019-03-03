@@ -2,14 +2,20 @@ void clearDisplay();
 void ascii_gotoxy(int x, int y);
 void ascii_write_char(unsigned char c);
 
-void displayAscii(char* str)
+void displayAscii(char* line1, char* line2)
 {
 	clearDisplay();
 	ascii_gotoxy(1, 1);
 
-	while (*str)
+	while (*line1)
 	{
-		ascii_write_char(*str++);
+		ascii_write_char(*line1++);
+	}
+	
+	ascii_gotoxy(1, 2);
+	while (*line2)
+	{
+		ascii_write_char(*line2++);
 	}
 }
 

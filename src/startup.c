@@ -5,7 +5,9 @@
 #include "snake.h"
 #include "platform_init.h"
 #include "platform.h"
+#include "obstacle.h"
 #include "asciidisplay.h"
+#include "splashScreen.h"
 
 void update();
 void render();
@@ -18,8 +20,11 @@ void main(void)
 	
 	initSnake(&snake);
 	initGraphics();
+    createObstecle();
+		
+	displaySplashScreen();
 	
-	displayAscii("Welcome to Cwing King!");
+	displayAscii("Welcome to Cwing King!", "this will be a challenge.");
 	
 	while (1)
 	{
@@ -35,6 +40,7 @@ void main(void)
 
 		// 30fps -> 1/30 = 33ms each frame
 		delayMilliSecs(33); // Somewhat target 30 fps.
+		delayMilliSecs(60); //tempdelay
 	}
 
 	
@@ -45,10 +51,12 @@ void update()
 {
 	// The update loop
 	snake.update(&snake);
+	updateObstacles(&snake);
 }
 
 void render()
 {
 	// Render to buffer
 	snake.render(&snake);
+    obstaclesRender();
 }
