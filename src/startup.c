@@ -32,7 +32,7 @@ void main(void)
 	while(!shouldExit)
 	{
 		initSnake(&snake);
-		initRope(&rope, &snake);
+		initRope(&rope, &snake, &roof);
 
 		playonegame();
 	}

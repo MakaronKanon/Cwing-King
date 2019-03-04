@@ -6,7 +6,7 @@
 
 static void updateSnake(Snake* snake)
 {
-	// Get input
+	/*// Get input
 	if(getKeyDown(KEYCODE_RIGHT))
 	{
 		snake->xDir = 1;
@@ -23,7 +23,11 @@ static void updateSnake(Snake* snake)
 	{
 		snake->yDir = 1;
 	}
+	*/
 	
+	//todo: yDir ska accelera till en maxHastighet, när snake swingar ska hastigheten sättas till lite uppåt
+	snake->xDir = 1;
+	snake->yDir = 1;
 	snake->xPos += snake->xDir;
 	snake->yPos += snake->yDir;
     

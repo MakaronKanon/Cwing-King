@@ -15,6 +15,9 @@ typedef struct tRoof
     void (*render)(Snake* snake);
 } Roof;
 
+extern Roof roof;
+
+
 void initRoof();
 void renderRoof(Snake* snake);
 
