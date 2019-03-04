@@ -7,6 +7,9 @@ typedef struct tSnake
 	int yDir;
 	int xPos;
 	int yPos;
+    
+    int xStartPos;
+    int xDelta;
 	
 	int size;
 	

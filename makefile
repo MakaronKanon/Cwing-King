@@ -3,7 +3,7 @@
 
 o_files = windowsout/startup.o windowsout/windows_graphics.o windowsout/windows_delay.o windowsout/windows_input.o windowsout/snake.o windowsout/windows_init.o \
 windowsout/windows_platform.o windowsout/obstacle.o windowsout/windows_asciidisplay.o windowsout/splashScreen.o \
-windowsout/gameoverScreen.o windowsout/rope.o
+windowsout/gameoverScreen.o windowsout/roof.o
 
 h_includes = -I src/snake -I src/windows -I src/windows/SDL/include -I src/windows/SDL/include/SDL2 -I src
 
@@ -51,8 +51,15 @@ windowsout/splashScreen.o: src/splashScreen.c
 windowsout/gameoverScreen.o: src/gameoverScreen.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
+<<<<<<< HEAD
+windowsout/roof.o: src/snake/roof.c
+	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
+
+
+=======
 windowsout/rope.o: src/snake/rope.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
+>>>>>>> origin/master
 clean:
 	rm $(o_files) windowsout/cwingking.exe

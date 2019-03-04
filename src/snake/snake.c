@@ -26,6 +26,8 @@ static void updateSnake(Snake* snake)
 	
 	snake->xPos += snake->xDir;
 	snake->yPos += snake->yDir;
+    
+    snake->xDelta = snake->xPos - snake->xStartPos;
 }
 
 static void renderSnake(Snake* snake)
@@ -41,8 +43,10 @@ static void renderSnake(Snake* snake)
 
 void initSnake(Snake* snake)
 {
-	snake->xPos = 10;
+    snake->xStartPos = 10;
+	snake->xPos = snake->xStartPos;
 	snake->yPos = 10;
+    snake->xDelta = 0;
 	
 	snake->xDir = 1;
 	snake->yDir = 1;

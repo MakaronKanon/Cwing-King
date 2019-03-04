@@ -9,6 +9,7 @@
 #include "asciidisplay.h"
 #include "splashScreen.h"
 #include "gameoverScreen.h"
+#include "roof.h"
 #include "rope.h"
 
 void update();
@@ -26,7 +27,8 @@ void main(void)
 	
 	initGraphics();
     createObstecle();
-	
+    initRoof();
+
 	while(!shouldExit)
 	{
 		initSnake(&snake);
@@ -41,7 +43,9 @@ void main(void)
 
 void playonegame()
 {
+	#ifndef WINDOWS //todo: remove before build to md407! :)
 	displaySplashScreen();
+	#endif
 	
 	displayAscii("Welcome to Cwing King!", "this will be a challenge.");
 	
@@ -85,4 +89,5 @@ void render()
 	snake.render(&snake);
 	rope.render(&rope);
     obstaclesRender();
+    renderRoof(&snake);
 }
