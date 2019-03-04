@@ -2,29 +2,29 @@
 #include "asciidisplay.h"
 #include "input.h"
 #include "keycodes.h"
-#include "splashscreen.xbm"
+#include "startScreen.xbm"
 #include "graphics.h"
 
 void displayWelcomeImage()
 {
 	
 	int width_bytes;
-	if (splashscreen_width % 8 == 0)
+	if (startScreen_width % 8 == 0)
 	{
-		width_bytes = splashscreen_width/8;
+		width_bytes = startScreen_width/8;
 	}
 	else
 	{
-		width_bytes = splashscreen_width/8+1;
+		width_bytes = startScreen_width/8+1;
 	}
 	
 	
 	// Showing image
 	for (int x = 0; x < width_bytes; x++)
 	{
-		for (int y = 0; y < splashscreen_height; y++)
+		for (int y = 0; y < startScreen_height; y++)
 		{
-			unsigned char byte = splashscreen_bits[x + y * width_bytes];
+			unsigned char byte = startScreen_bits[x + y * width_bytes];
 			for (int k = 0; k < 8; k++)
 			{
 				if (byte & (1 << k))

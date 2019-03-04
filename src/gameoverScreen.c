@@ -2,7 +2,7 @@
 #include "asciidisplay.h"
 #include "input.h"
 #include "keycodes.h"
-#include "splashscreen.xbm"
+#include "Gameover.xbm"
 #include "graphics.h"
 
 //todo: this is copied from splashScreen, we shall not copy.
@@ -10,22 +10,22 @@ void displayGameoverImage()
 {
 	
 	int width_bytes;
-	if (splashscreen_width % 8 == 0)
+	if (Gameover_width % 8 == 0)
 	{
-		width_bytes = splashscreen_width/8;
+		width_bytes = Gameover_width/8;
 	}
 	else
 	{
-		width_bytes = splashscreen_width/8+1;
+		width_bytes = Gameover_width/8+1;
 	}
 	
 	
 	// Showing image
 	for (int x = 0; x < width_bytes; x++)
 	{
-		for (int y = 0; y < splashscreen_height; y++)
+		for (int y = 0; y < Gameover_height; y++)
 		{
-			unsigned char byte = splashscreen_bits[x + y * width_bytes];
+			unsigned char byte = Gameover_bits[x + y * width_bytes];
 			for (int k = 0; k < 8; k++)
 			{
 				if (byte & (1 << k))
