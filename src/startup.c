@@ -43,7 +43,7 @@ void main(void)
 
 void playonegame()
 {
-	#ifndef WINDOWS //todo: remove before build to md407! :)
+	#ifdef WINDOWS //todo: remove before build to md407! :)
 	displaySplashScreen();
 	#endif
 	
