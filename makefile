@@ -3,7 +3,7 @@
 
 o_files = windowsout/startup.o windowsout/windows_graphics.o windowsout/windows_delay.o windowsout/windows_input.o windowsout/snake.o windowsout/windows_init.o \
 windowsout/windows_platform.o windowsout/obstacle.o windowsout/windows_asciidisplay.o windowsout/splashScreen.o \
-windowsout/gameoverScreen.o
+windowsout/gameoverScreen.o windowsout/rope.o
 
 h_includes = -I src/snake -I src/windows -I src/windows/SDL/include -I src/windows/SDL/include/SDL2 -I src
 
@@ -49,6 +49,9 @@ windowsout/splashScreen.o: src/splashScreen.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
 windowsout/gameoverScreen.o: src/gameoverScreen.c
+	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
+
+windowsout/rope.o: src/snake/rope.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
 clean:

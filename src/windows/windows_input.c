@@ -23,6 +23,10 @@ int getKeyDown(unsigned char keyCode)
 	{
 		return state[SDL_SCANCODE_UP];
 	}
+	if (keyCode == KEYCODE_SWING)
+	{
+		return state[SDL_SCANCODE_SPACE];
+	}
 	/*
 	switch (keyCode)
 	{

@@ -28,6 +28,9 @@
     <File Name="src/platform.h"/>
     <File Name="src/platform_init.h"/>
     <VirtualDirectory Name="snake">
+      <File Name="src/snake/vec2i.h"/>
+      <File Name="src/snake/rope.h"/>
+      <File Name="src/snake/rope.c"/>
       <File Name="src/snake/obstacle.h"/>
       <File Name="src/snake/obstacle.c"/>
       <File Name="src/snake/snake.c"/>

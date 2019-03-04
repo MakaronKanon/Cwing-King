@@ -9,12 +9,15 @@
 #include "asciidisplay.h"
 #include "splashScreen.h"
 #include "gameoverScreen.h"
+#include "rope.h"
 
 void update();
 void render();
 void playonegame();
 
 Snake snake;
+Rope rope; // We only one rope at once.
+
 int shouldExit = 0;
 
 void main(void)
@@ -23,10 +26,11 @@ void main(void)
 	
 	initGraphics();
     createObstecle();
-		
+	
 	while(!shouldExit)
 	{
 		initSnake(&snake);
+		initRope(&rope, &snake);
 
 		playonegame();
 	}
@@ -71,6 +75,7 @@ void update()
 {
 	// The update loop
 	snake.update(&snake);
+	rope.update(&rope);
 	updateObstacles(&snake);
 }
 
@@ -78,5 +83,6 @@ void render()
 {
 	// Render to buffer
 	snake.render(&snake);
+	rope.render(&rope);
     obstaclesRender();
 }
