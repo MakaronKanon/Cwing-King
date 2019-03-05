@@ -2,12 +2,14 @@
 #include "snake.h"
 #include "graphics.h"
 #include "asciidisplay.h"
+//#include <stdio.h>
 
 obstacle obsticals[10];
 unsigned int nObsticals = 0;
 
 static void render(obstacle *this)
 {
+	//printf("xpos: %d, ypos: %d \n width: %d, height: %d \n", this->xPos, this->yPos, this->width, this->hight);
     int h = 0;
     for(;h<this->hight; ++h) 
     {
@@ -47,10 +49,10 @@ static void updateObstacle(obstacle* this, Snake* snake)
 }
 
 
-void initObstecle(obstacle *current, int hight)
+void initObstecle(obstacle *current, int hight, int x)
 {
     //64 32 to place in middle of screen.
-    current->xPos=24;
+    current->xPos=x;//150;
     current->yPos = 64;
     current->render = render;
 	current->update = updateObstacle;
@@ -58,7 +60,7 @@ void initObstecle(obstacle *current, int hight)
     current->hight = hight;
 } 
 
-void createObstecle(int hight)
+void createObstecle(int x, int hight)
 {
     //start over if array is full. all obstical can be on scrren in the same time
     if(nObsticals > sizeof(obsticals))
@@ -66,6 +68,6 @@ void createObstecle(int hight)
         nObsticals = 0;
     }
         
-    initObstecle(&obsticals[nObsticals++], hight);
+    initObstecle(&obsticals[nObsticals++], hight, x);
 }
 

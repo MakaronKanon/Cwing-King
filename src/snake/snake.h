@@ -7,6 +7,8 @@ typedef struct tSnake
 	int yDir;
 	int xPos;
 	int yPos;
+	
+	
     
     int xStartPos;
     int xDelta;
@@ -21,5 +23,7 @@ typedef struct tSnake
 } Snake;
 
 void initSnake(Snake* snake);
+
+void bounce(Snake* snake);
 
 #endif

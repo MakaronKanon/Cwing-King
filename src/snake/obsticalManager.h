@@ -5,3 +5,5 @@ void updateObstacles(Snake* snake);
 void spawnObstical();
 
 void obstaclesRender();
+
+void spawnInitialObstacles();

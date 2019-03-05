@@ -96,13 +96,13 @@ static void updateRope(Rope* rope)
 	if (rope->active)
 	{ // end need to stick to player
 		// player need to stick to end
-		
+		/*
 		if (rope->player->yPos < 15)
 		{
 			// player need to let go to avoid bugs
 			rope->active = 0;
             initRope(rope,rope->player,rope->roof);
-		}
+		}*/
 		
 		// change startPos little bit
 		double lenSqr = rope->lenSqr;
@@ -139,10 +139,12 @@ static void updateRope(Rope* rope)
 	// if active && !launching:
 	// we need to transform the player forwards in a swing circular motion
 	
-	if (!swingButtonIsDown)
+	if (rope->active && !swingButtonIsDown)
 	{ // stop swinging
 		rope->active = 0;
         initRope(rope,rope->player,rope->roof);
+		extern Snake snake;
+		bounce(&snake);
 	}
 }
 

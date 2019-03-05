@@ -11,6 +11,7 @@
 #include "gameoverScreen.h"
 #include "roof.h"
 #include "rope.h"
+#include "obsticalManager.h"
 
 void update();
 void render();
@@ -27,12 +28,13 @@ void main(void)
 	
 	initGraphics();
 //    createObstecle();
-    initRoof();
 
 	while(!shouldExit)
 	{
+		initRoof();
 		initSnake(&snake);
 		initRope(&rope, &snake, &roof);
+		spawnInitialObstacles();
 
 		playonegame();
 	}
@@ -71,7 +73,7 @@ void playonegame()
 
 		// 30fps -> 1/30 = 33ms each frame
 		delayMilliSecs(33); // Somewhat target 30 fps.
-		delayMilliSecs(60); //tempdelay
+		//delayMilliSecs(60); //tempdelay
 	}
 }
 

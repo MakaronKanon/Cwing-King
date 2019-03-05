@@ -5,12 +5,12 @@
 #include "obsticalManager.h"
 #include <stdlib.h>
 
-void spawnObstical()
+void spawnObstical(int x)
 {
     //min 16 max 36
-    int hight = rand() * 20 + 16;
+    int hight = rand() % 20 + 16;
     
-    createObstecle(hight);
+    createObstecle(x, hight);
 }
 
 void obstaclesRender()
@@ -25,6 +25,18 @@ void updateObstacles(Snake* snake)
 {
 	for(int i=0; i<nObsticals; ++i)
     {
+		if (obsticals[i].xPos < snake->xPos )
+			obsticals[i].xPos += 128;
         obsticals[i].update(&obsticals[i], snake);
+		
     }
+}
+
+void spawnInitialObstacles()
+{
+	// create 5 obstacles
+	for (int i = 1; i < 6; i++)
+	{
+		spawnObstical(i * 50);
+	}
 }

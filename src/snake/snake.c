@@ -27,9 +27,12 @@ static void updateSnake(Snake* snake)
 	
 	//todo: yDir ska accelera till en maxHastighet, när snake swingar ska hastigheten sättas till lite uppåt
 	snake->xDir = 1;
-	snake->yDir = 1;
+	//snake->yDir = 1;
 	snake->xPos += snake->xDir;
 	snake->yPos += snake->yDir;
+	
+	if (snake->yDir < 1)
+		snake->yDir++; // accelerate down
     
     snake->xDelta = snake->xPos - snake->xStartPos;
 }
@@ -43,6 +46,12 @@ static void renderSnake(Snake* snake)
 			setPixel(x + snake->xPos, y + snake->yPos, 1);
 		}
 	}
+}
+
+// This make the player fly up a bit
+void bounce(Snake* snake)
+{
+	snake->yDir = -3; // we have to little resolution
 }
 
 void initSnake(Snake* snake)
