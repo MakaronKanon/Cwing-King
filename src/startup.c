@@ -26,7 +26,7 @@ void main(void)
 	platform_init();
 	
 	initGraphics();
-    createObstecle();
+//    createObstecle();
     initRoof();
 
 	while(!shouldExit)

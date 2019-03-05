@@ -15,8 +15,4 @@ typedef struct tObstacle
 extern obstacle obsticals[];
 extern unsigned int nObsticals;
 
-void updateObstacles(Snake* snake);
-
-void createObstecle();
-
-void obstaclesRender();
+void createObstecle(int hight);

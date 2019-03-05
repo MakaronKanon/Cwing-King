@@ -3,7 +3,7 @@
 #include "graphics.h"
 #include "asciidisplay.h"
 
-obstacle obstacles[10];
+obstacle obsticals[10];
 unsigned int nObsticals = 0;
 
 static void render(obstacle *this)
@@ -46,35 +46,26 @@ static void updateObstacle(obstacle* this, Snake* snake)
     }
 }
 
-void updateObstacles(Snake* snake)
-{
-	for(int i=0; i<nObsticals; ++i)
-    {
-        obstacles[i].update(&obstacles[i], snake);
-    }
-}
 
-void initObstecle(obstacle *current)
+void initObstecle(obstacle *current, int hight)
 {
     //64 32 to place in middle of screen.
     current->xPos=24;
-    current->yPos = 45;
+    current->yPos = 64;
     current->render = render;
 	current->update = updateObstacle;
     current->width = 8;
-    current->hight = 16;
+    current->hight = hight;
 } 
 
-void createObstecle()
+void createObstecle(int hight)
 {
-    initObstecle(&obstacles[nObsticals++]);
-}
-
-void obstaclesRender()
-{
-    for(int i=0; i<nObsticals; ++i)
+    //start over if array is full. all obstical can be on scrren in the same time
+    if(nObsticals > sizeof(obsticals))
     {
-        obstacles[i].render(&obstacles[i]);
+        nObsticals = 0;
     }
-
+        
+    initObstecle(&obsticals[nObsticals++], hight);
 }
+
