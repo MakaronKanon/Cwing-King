@@ -21,7 +21,7 @@ void initRoof()
     roof.xPos = 0;
     roof.yPos = 0;
     roof.hight = 4;
-    roof.width = 128;
+    roof.width = 128*100;
     
     roof.render = renderRoof;
 }

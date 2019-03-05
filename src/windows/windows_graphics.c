@@ -5,6 +5,7 @@
 
 //#include "main.h"
 #include <stdbool.h>
+#include "snake.h"
 
 static void putPixel(SDL_Surface* surface, unsigned int x, unsigned int y, Uint32 newPixelCol);
 
@@ -76,7 +77,10 @@ static void putPixel(SDL_Surface* surface, unsigned int x, unsigned int y, Uint3
 }
 
 void setPixel(int x, int y, int set)
-{
+{    
+    extern Snake snake;
+    x -= snake.xDelta;
+    
 	if (x > 127 || x < 0 || y < 0 || y > 63)
 	{
 		return; // invalid range

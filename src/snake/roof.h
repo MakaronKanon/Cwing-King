@@ -8,6 +8,7 @@ typedef struct tRoof
     int xPos;
     int yPos;
     
+    
     int width;
     int hight;
     

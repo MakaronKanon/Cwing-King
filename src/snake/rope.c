@@ -18,6 +18,7 @@ void initRope(Rope* rope, Snake* player, Roof* roof)
 	rope->active = 0;
 	rope->player = player;
 	rope->roof = roof;
+    rope->lenSqr = 1;
 }
 
 static int pointCollidesWithRoof(int x, int y, Roof* roof)
@@ -56,13 +57,12 @@ static void updateRope(Rope* rope)
 			{
 				displayAscii("collision", "with roof");
 				
-				
-				
 				// we have found the roof,
 				break;
 			}
 			if (i == 999)
 			{
+                printf("WARNING THIS IS NOT A DRILL");
 				// this should never happen.
 			}
 		}
@@ -101,6 +101,7 @@ static void updateRope(Rope* rope)
 		{
 			// player need to let go to avoid bugs
 			rope->active = 0;
+            initRope(rope,rope->player,rope->roof);
 		}
 		
 		// change startPos little bit
@@ -114,6 +115,10 @@ static void updateRope(Rope* rope)
 		printf("playery %d\n", rope->player->yPos);
 		printf("deltay %f\n", deltaY);
 		printf("deltax %f\n", deltaX);
+        printf("rope y end: %d\n", rope->end.y);
+		printf("rope y start: %d\n", rope->start.y);
+        printf("\n");
+        printf("\n");
 		
 		//deltaX *= -1;
 		//deltaY *= -1;
@@ -137,6 +142,7 @@ static void updateRope(Rope* rope)
 	if (!swingButtonIsDown)
 	{ // stop swinging
 		rope->active = 0;
+        initRope(rope,rope->player,rope->roof);
 	}
 }
 
