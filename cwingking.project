@@ -20,6 +20,8 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="src/rng.h"/>
+    <File Name="src/rng.c"/>
     <File Name="src/gameoverScreen.h"/>
     <File Name="src/gameoverScreen.c"/>
     <File Name="src/splashScreen.h"/>

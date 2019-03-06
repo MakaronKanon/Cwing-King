@@ -4,12 +4,14 @@
 #include "asciidisplay.h"
 #include "obsticalManager.h"
 //#include <stdlib.h>
+#include "rng.h"
 
 void spawnObstical(int x)
 {
     //min 16 max 36
     //int hight = rand() % 20 + 16;
-	int hight = 16;
+	//int hight = 16;
+	int hight = genRandomNum() % 20 + 16;
     
     createObstecle(x, hight);
 }
