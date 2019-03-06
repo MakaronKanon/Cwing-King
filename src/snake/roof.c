@@ -25,9 +25,7 @@ void initRoof()
     roof.yPos = 0;
     roof.hight = 4;
     roof.width = 128;//*100; tog för lång tid?
-    
-    printf("W: %d \n", roof.width);
-    printf("H: %d \n", roof.hight);
+
     
     roof.render = renderRoof;
 }

@@ -20,6 +20,7 @@ void initGraphics()
 {
 	void graphic_initialize();
 	graphic_initialize();
+//	clearOldChangedBuffer();
 }
 
 void cleanUpGraphics()
@@ -53,6 +54,8 @@ uint8 pixelBuffer[128][8];
 
 // Om värdet är 1 har den ändrats, annars ej.
 uint8 changedBuffer[128][8];
+
+//uint8 oldChangedBuffer[128][8];
 
 void fillBufferBlack()
 {
@@ -101,6 +104,18 @@ void clearChangedBuffer()
 	}
 }
 
+/*
+void clearOldChangedBuffer()
+{
+	for (int x = 0; x < 128; x++)
+	{
+		for (int y = 0; y < 8; y++)
+		{
+			oldChangedBuffer[x][y] = 0;
+		}
+	}
+}*/
+
 void clearBuffer()
 {
 	for (int x = 0; x < 128; x++)
@@ -115,7 +130,10 @@ void clearBuffer()
 // vi ska också ha en swapbuffers/render metod som ritar allt på skärmen.
 void swapBuffers()
 {
-	//todo: first we use our old pixel method, to speed things up we shouldn't use it because it's slow
+
+	// First clear the old one,
+	// then set the new one to the old one
+	
 	
 	// Render two different times, one for each screen
 	for (int screen = 0; screen < 2; screen++)
@@ -134,11 +152,13 @@ void swapBuffers()
 				uint8 address = x;
 				uint8 page = y;
 				uint8 chipSet;
-				
-				/*// This does not really work as intended, disable for now
+				/*
+				// This does not really work as intended, disable for now
 				if (changedBuffer[x + screen*64][page] != 1) // dont update if not changed
 				{
-					continue;
+					if (oldChangedBuffer[x + screen*64][page] != 1)
+						continue;
+					
 				}*/
 				
 				if (screen == 0)
@@ -158,7 +178,17 @@ void swapBuffers()
 			}
 		}
 	}
+	/*
+	uint8** changedBuffer2 = changedBuffer;
+	uint8*** pOldChangedBuffer = &oldChangedBuffer;
+	*pOldChangedBuffer = changedBuffer;
 	
+	uint8*** pChangedBuffer = &changedBuffer;
+	*pChangedBuffer = changedBuffer2;*/
+	//changedBuffer = temp;
+	
+	//oldChangedBuffer[0] = changedBuffer;
+	//changedBuffer = temp;
 	clearChangedBuffer();
 	clearBuffer();
 }

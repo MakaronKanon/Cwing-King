@@ -28,8 +28,13 @@ void updateObstacles(Snake* snake)
 {
 	for(int i=0; i<nObsticals; ++i)
     {
-		if (obsticals[i].xPos < snake->xPos )
+		if (obsticals[i].xPos < snake->xPos - 15 )
+		{
+			int hight = genRandomNum() % 20 + 16;
+			obsticals[i].hight = hight;
 			obsticals[i].xPos += 128;
+		}
+			
         obsticals[i].update(&obsticals[i], snake);
 		
     }
@@ -37,9 +42,9 @@ void updateObstacles(Snake* snake)
 
 void spawnInitialObstacles()
 {
-	// create 5 obstacles
-	for (int i = 1; i < 6; i++)
+	// create 2 obstacles
+	for (int i = 1; i < 3; i++)
 	{
-		spawnObstical(i * 50);
+		spawnObstical(i * 64);
 	}
 }

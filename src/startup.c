@@ -69,6 +69,7 @@ void playonegame()
 		
 		update();
 		render();
+		// clear old display
 		displayBuffer();
 		clearBuffer();
 

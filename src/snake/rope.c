@@ -162,12 +162,14 @@ static void renderRope(Rope* rope)
     int x = 0;
     int y = 0;
     int l = 1;
+	float cosAng = cos(ang);
+	float sinAng = sin(ang);
     
 //    printf("deg: %f \n",ang * 180/3.1415);
     while(rope->start.y - y > rope->end.y)
     {
-        x = cos(ang) * l;
-        y = sin(ang) * l;
+        x = cosAng * l;
+        y = sinAng * l;
 		if (y < 0)
 		{
 			y = -y;
