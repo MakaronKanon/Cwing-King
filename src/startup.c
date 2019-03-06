@@ -63,6 +63,7 @@ void playonegame()
 			snake.dead = 0;
 			// Show gameover screen before we jump out
 			displayGameoverScreen(10);
+			clearBuffer(); // Clear gameOver screen image.
 			break;
 		}
 		
