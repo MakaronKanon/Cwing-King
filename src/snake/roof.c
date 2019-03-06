@@ -6,11 +6,12 @@ Roof roof;
 void renderRoof(Snake* snake)
 {
     int xOffset = snake->xDelta;
+    roof.xPos = xOffset;
     for(int h=0; h<roof.hight; ++h) 
     {
         for(int w=0; w<roof.width; ++w) 
         {
-            setPixel(roof.xPos + xOffset + w,roof.yPos + h,1);
+            setPixel(roof.xPos + w,roof.yPos + h,1);
         }
     }
 
