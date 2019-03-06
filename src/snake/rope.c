@@ -6,7 +6,7 @@
 #include "roof.h"
 #include "asciidisplay.h"
 #include "math.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 static void updateRope();
 static void renderRope();
@@ -62,7 +62,7 @@ static void updateRope(Rope* rope)
 			}
 			if (i == 999)
 			{
-                printf("WARNING THIS IS NOT A DRILL");
+                /*printf("WARNING THIS IS NOT A DRILL");*/
 				// this should never happen.
 			}
 		}
@@ -111,6 +111,7 @@ static void updateRope(Rope* rope)
 		deltaX -= 1; // åk åt höger
 		deltaY = sqrt(-deltaX * deltaX + lenSqr);
 		
+		/*
 		printf("playerx %d\n", rope->player->xPos);
 		printf("playery %d\n", rope->player->yPos);
 		printf("deltay %f\n", deltaY);
@@ -118,7 +119,7 @@ static void updateRope(Rope* rope)
         printf("rope y end: %d\n", rope->end.y);
 		printf("rope y start: %d\n", rope->start.y);
         printf("\n");
-        printf("\n");
+        printf("\n");*/
 		
 		//deltaX *= -1;
 		//deltaY *= -1;

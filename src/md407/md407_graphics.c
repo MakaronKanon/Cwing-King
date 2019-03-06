@@ -1,7 +1,10 @@
 #ifdef MD407
+#include "snake.h"
 
 void setPixel(int x, int y, int set)
 {
+	extern Snake snake;
+    x -= snake.xDelta;
 	void setPixelBuffer(unsigned int x, unsigned int y, int set);
 	setPixelBuffer(x, y, set);
 }
@@ -132,10 +135,11 @@ void swapBuffers()
 				uint8 page = y;
 				uint8 chipSet;
 				
+				/*// This does not really work as intended, disable for now
 				if (changedBuffer[x + screen*64][page] != 1) // dont update if not changed
 				{
 					continue;
-				}
+				}*/
 				
 				if (screen == 0)
 				{
