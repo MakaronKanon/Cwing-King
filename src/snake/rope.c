@@ -55,7 +55,7 @@ static void updateRope(Rope* rope)
 			endY += rope->direction.y;
 			if (pointCollidesWithRoof(endX, endY, rope->roof))
 			{
-				displayAscii("collision", "with roof");
+//				displayAscii("collision", "with roof");
 				
 				// we have found the roof,
 				break;

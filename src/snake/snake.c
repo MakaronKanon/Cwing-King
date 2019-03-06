@@ -3,6 +3,7 @@
 #include "graphics.h"
 #include "input.h"
 #include "keycodes.h"
+#include "stdio.h"
 
 static void updateSnake(Snake* snake)
 {
@@ -35,6 +36,11 @@ static void updateSnake(Snake* snake)
 		snake->yDir++; // accelerate down
     
     snake->xDelta = snake->xPos - snake->xStartPos;
+    
+    if(snake->yPos > 64) 
+    {
+        snake->dead = 1;
+    }
 }
 
 static void renderSnake(Snake* snake)

@@ -31,9 +31,9 @@ void main(void)
 
 	while(!shouldExit)
 	{
-		initRoof();
 		initSnake(&snake);
 		initRope(&rope, &snake, &roof);
+        initRoof();
 		spawnInitialObstacles();
 
 		playonegame();

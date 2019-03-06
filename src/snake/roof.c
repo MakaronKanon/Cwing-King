@@ -1,5 +1,7 @@
 #include "roof.h"
 #include "graphics.h"
+#include "asciidisplay.h"
+#include <stdio.h>
 
 Roof roof;
 
@@ -23,6 +25,9 @@ void initRoof()
     roof.yPos = 0;
     roof.hight = 4;
     roof.width = 128;//*100; tog för lång tid?
+    
+    printf("W: %d \n", roof.width);
+    printf("H: %d \n", roof.hight);
     
     roof.render = renderRoof;
 }
