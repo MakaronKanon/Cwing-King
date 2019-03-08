@@ -1,14 +1,9 @@
 #ifndef DELAY_H
 #define DELAY_H
 
-#ifdef WINDOWS
+// Crossplatform: methods needs to be implemented for every platform (Windows/MD407)
 
-#include "windows_delay.h"
-
-#elif MD407
-
-#include "md407_delay.h"
-
-#endif
+// Blocks execution for some milliseconds
+void delayMilliSecs(unsigned int milliSecs);
 
 #endif //DELAY_H

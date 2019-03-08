@@ -35,7 +35,7 @@ void displayWelcomeImage()
 		}
 	}
 	displayBuffer();
-		//clearBuffer();
+	clearBuffer();
 }
 
 void displaySplashScreen()

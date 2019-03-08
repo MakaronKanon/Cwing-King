@@ -2,6 +2,7 @@
 
 #include "stdio.h"
 
+// Emulates ascii display using CMD
 void displayAscii(char* line1, char* line2)
 {
 	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");

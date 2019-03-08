@@ -4,7 +4,7 @@
 #include "keycodes.h"
 #include "Gameover.xbm"
 #include "graphics.h"
-#include "snake.h"
+#include "player.h"
 
 //todo: this is copied from splashScreen, we shall not copy.
 void displayGameoverImage()
@@ -31,14 +31,14 @@ void displayGameoverImage()
 			{
 				if (byte & (1 << k))
 				{
-					extern Snake snake;
-					setPixel(8 * x + k + snake.xDelta, y, 1);
+					setPixel(8 * x + k + player.xDelta, y, 1);
 				}
 			}
 		}
 	}
 	displayBuffer();
-		//clearBuffer();
+	// Clear gameOver screen image.
+	clearBuffer(); 
 }
 
 

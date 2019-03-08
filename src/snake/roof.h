@@ -1,8 +1,8 @@
 #ifndef ROOF_H
 #define ROOF_H
-#include "snake.h"
+#include "player.h"
 
-
+// Represents a roof
 typedef struct tRoof
 {
     int xPos;
@@ -13,13 +13,16 @@ typedef struct tRoof
     int hight;
     
     void (*update)(struct tRoof* roof);
-    void (*render)(Snake* snake);
+    void (*render)(Player* snake);
 } Roof;
 
+// The roof variable
 extern Roof roof;
 
-
+// Initalize the roof to default values
 void initRoof();
-void renderRoof(Snake* snake);
+
+// Renders the roof
+void renderRoof(Player* snake);
 
 #endif

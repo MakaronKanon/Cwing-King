@@ -1,18 +1,25 @@
-#include "snake.h"
+#ifndef OBSTACLE_H
+#define OBSTACLE_H
 
+#include "player.h"
+
+// Representation of obstacle
 typedef struct tObstacle 
 {
-    int xPos;   // bas position is for buttom left corner
+    int xPos;   // base-position is for bottom left corner
     int yPos;
     
     int width;
-    int hight;
+    int height;
     
-    void (*update)(struct tObstacle*, Snake* snake);
+    void (*update)(struct tObstacle*, Player* snake);
     void (*render)(struct tObstacle*);
-} obstacle;
+} Obstacle;
 
-extern obstacle obsticals[];
-extern unsigned int nObsticals;
+extern Obstacle obstacles[];
+extern unsigned int numObstacles;
 
-void createObstecle(int x, int hight);
+// Create a obstacle
+void createObstacle(int x, int height);
+
+#endif //OBSTACLE_H

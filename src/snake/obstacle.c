@@ -1,17 +1,15 @@
 #include <obstacle.h>
-#include "snake.h"
+#include "player.h"
 #include "graphics.h"
 #include "asciidisplay.h"
-//#include <stdio.h>
 
-obstacle obsticals[10];
-unsigned int nObsticals = 0;
+Obstacle obstacles[10];
+unsigned int numObstacles = 0;
 
-static void render(obstacle *this)
+static void render(Obstacle *this)
 {
-	//printf("xpos: %d, ypos: %d \n width: %d, height: %d \n", this->xPos, this->yPos, this->width, this->hight);
     int h = 0;
-    for(;h<this->hight; ++h) 
+    for(;h<this->height; ++h) 
     {
         for(int w=0; w<this->width; ++w) 
         {
@@ -21,35 +19,34 @@ static void render(obstacle *this)
 
 }
 
-static void DetectCollision(int x, int y, obstacle* this, Snake* snake)
+static void detectCollision(int x, int y, Obstacle* this, Player* player)
 {
     
-    if(((x <= (this->xPos + this->width)) && (x >= this->xPos)) && ((y <= this->yPos) && (y >= (this->yPos - this->hight))))
+    if(((x <= (this->xPos + this->width)) && (x >= this->xPos)) && ((y <= this->yPos) && (y >= (this->yPos - this->height))))
     {
-		snake->dead = 1;
-        //displayAscii("hit!", "");
+		player->dead = 1;
     } 
 }
 
-static void updateObstacle(obstacle* this, Snake* snake)
+static void updateObstacle(Obstacle* this, Player* player)
 {
     //the collision now happens when they overlap if you want it to happen before change here
     int corners[4][2] = {
-                        {snake->xPos,snake->yPos},                              //Buttom left corner !not matching corners!
-                        {snake->xPos + snake->size, snake->yPos},               //Buttom right corner
-                        {snake->xPos, snake->yPos + snake->size},               //Top left corner
-                        {snake->xPos+ snake->size, snake->yPos + snake->size}   //Top right corner
+                        {player->xPos,player->yPos},                              //Buttom left corner !not matching corners!
+                        {player->xPos + player->size, player->yPos},               //Buttom right corner
+                        {player->xPos, player->yPos + player->size},               //Top left corner
+                        {player->xPos+ player->size, player->yPos + player->size}   //Top right corner
                         };
                         
     //checks if any of the players 4 corers overlap with the obstacle 
 	for(int c=0; c<4; ++c) 
     {
-        DetectCollision(corners[c][0], corners[c][1], this, snake);
+        detectCollision(corners[c][0], corners[c][1], this, player);
     }
 }
 
 
-void initObstecle(obstacle *current, int hight, int x)
+void initObstacle(Obstacle *current, int height, int x)
 {
     //64 32 to place in middle of screen.
     current->xPos=x;//150;
@@ -57,17 +54,17 @@ void initObstecle(obstacle *current, int hight, int x)
     current->render = render;
 	current->update = updateObstacle;
     current->width = 8;
-    current->hight = hight;
+    current->height = height;
 } 
 
-void createObstecle(int x, int hight)
+void createObstacle(int x, int height)
 {
     //start over if array is full. all obstical can be on scrren in the same time
-    if(nObsticals > sizeof(obsticals))
+    if(numObstacles > sizeof(obstacles))
     {
-        nObsticals = 0;
+        numObstacles = 0;
     }
         
-    initObstecle(&obsticals[nObsticals++], hight, x);
+    initObstacle(&obstacles[numObstacles++], height, x);
 }
 

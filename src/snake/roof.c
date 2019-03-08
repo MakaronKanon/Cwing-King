@@ -5,7 +5,7 @@
 
 Roof roof;
 
-void renderRoof(Snake* snake)
+void renderRoof(Player* snake)
 {
     int xOffset = snake->xDelta;
     roof.xPos = xOffset;
@@ -24,8 +24,7 @@ void initRoof()
     roof.xPos = 0;
     roof.yPos = 0;
     roof.hight = 4;
-    roof.width = 128;//*100; tog för lång tid?
+    roof.width = 128;
 
-    
     roof.render = renderRoof;
 }

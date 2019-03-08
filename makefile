@@ -1,9 +1,9 @@
 # Makefile for generating executable for Windows ??x86??
 
 
-o_files = windowsout/startup.o windowsout/windows_graphics.o windowsout/windows_delay.o windowsout/windows_input.o windowsout/snake.o windowsout/windows_init.o \
-windowsout/windows_platform.o windowsout/obstacle.o windowsout/windows_asciidisplay.o windowsout/splashScreen.o \
-windowsout/gameoverScreen.o windowsout/roof.o windowsout/rope.o windowsout/obsticalManager.o windowsout/rng.o
+o_files = windowsout/startup.o windowsout/windows_graphics.o windowsout/windows_delay.o windowsout/windows_input.o windowsout/player.o windowsout/windows_init.o \
+windowsout/windows_platform.o windowsout/obstacle.o windowsout/windows_asciidisplay.o windowsout/splashscreen.o \
+windowsout/gameover_screen.o windowsout/roof.o windowsout/rope.o windowsout/obstacle_manager.o windowsout/rng.o
 
 h_includes = -I src/snake -I src/windows -I src/windows/SDL/include -I src/windows/SDL/include/SDL2 -I src
 
@@ -30,7 +30,7 @@ windowsout/windows_delay.o: src/windows/windows_delay.c
 windowsout/windows_input.o: src/windows/windows_input.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
-windowsout/snake.o: src/snake/snake.c
+windowsout/player.o: src/snake/player.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
 windowsout/windows_init.o: src/windows/windows_init.c
@@ -45,10 +45,10 @@ windowsout/obstacle.o: src/snake/obstacle.c
 windowsout/windows_asciidisplay.o: src/windows/windows_asciidisplay.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
-windowsout/splashScreen.o: src/splashScreen.c
+windowsout/splashscreen.o: src/splashscreen.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
-windowsout/gameoverScreen.o: src/gameoverScreen.c
+windowsout/gameover_screen.o: src/gameover_screen.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
 windowsout/roof.o: src/snake/roof.c
@@ -58,7 +58,7 @@ windowsout/roof.o: src/snake/roof.c
 windowsout/rope.o: src/snake/rope.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
-windowsout/obsticalManager.o: src/snake/obsticalManager.c
+windowsout/obstacle_manager.o: src/snake/obstacle_manager.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
 windowsout/rng.o: src/rng.c

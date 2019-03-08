@@ -20,27 +20,28 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="src/snake/vec2i.h"/>
+    <File Name="src/gameover_screen.c"/>
+    <File Name="src/gameover_screen.h"/>
+    <File Name="src/splashscreen.c"/>
+    <File Name="src/splashscreen.h"/>
+    <File Name="src/types.h"/>
     <File Name="src/rng.h"/>
     <File Name="src/rng.c"/>
-    <File Name="src/gameoverScreen.h"/>
-    <File Name="src/gameoverScreen.c"/>
-    <File Name="src/splashScreen.h"/>
-    <File Name="src/splashScreen.c"/>
     <File Name="src/asciidisplay.h"/>
     <File Name="src/platform.h"/>
     <File Name="src/platform_init.h"/>
-    <VirtualDirectory Name="snake">
-      <File Name="src/snake/obsticalManager.h"/>
-      <File Name="src/snake/obsticalManager.c"/>
+    <VirtualDirectory Name="objects">
+      <File Name="src/snake/player.h"/>
+      <File Name="src/snake/player.c"/>
+      <File Name="src/snake/obstacle_manager.h"/>
+      <File Name="src/snake/obstacle_manager.c"/>
       <File Name="src/snake/roof.h"/>
       <File Name="src/snake/roof.c"/>
-      <File Name="src/snake/vec2i.h"/>
       <File Name="src/snake/rope.h"/>
       <File Name="src/snake/rope.c"/>
       <File Name="src/snake/obstacle.h"/>
       <File Name="src/snake/obstacle.c"/>
-      <File Name="src/snake/snake.c"/>
-      <File Name="src/snake/snake.h"/>
     </VirtualDirectory>
     <File Name="src/keycodes.h"/>
     <File Name="src/input.h"/>
@@ -53,28 +54,20 @@
       <File Name="src/md407/md407_asciidisplay.c"/>
       <File Name="src/md407/md407_platform.c"/>
       <File Name="src/md407/md407_init.c"/>
-      <File Name="src/md407/md407_init.h"/>
       <File Name="src/md407/md407_input.c"/>
-      <File Name="src/md407/md407_types.h"/>
       <File Name="src/md407/md407_display_constants.h"/>
       <File Name="src/md407/md407_ports.h"/>
       <File Name="src/md407/md407_settings.h"/>
       <File Name="src/md407/md407_delay.c"/>
       <File Name="src/md407/md407_delay.h"/>
-      <File Name="src/md407/md407_input.h"/>
-      <File Name="src/md407/md407_graphics.h"/>
       <File Name="src/md407/md407_graphics.c"/>
     </VirtualDirectory>
     <VirtualDirectory Name="windows">
       <File Name="src/windows/windows_asciidisplay.c"/>
       <File Name="src/windows/windows_platform.c"/>
       <File Name="src/windows/windows_init.c"/>
-      <File Name="src/windows/windows_init.h"/>
       <File Name="src/windows/windows_input.c"/>
-      <File Name="src/windows/windows_input.h"/>
-      <File Name="src/windows/windows_delay.h"/>
       <File Name="src/windows/windows_delay.c"/>
-      <File Name="src/windows/windows_graphics.h"/>
       <File Name="src/windows/windows_graphics.c"/>
     </VirtualDirectory>
   </VirtualDirectory>

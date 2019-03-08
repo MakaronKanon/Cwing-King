@@ -1,9 +1,9 @@
-#ifdef WINDOWS
+#ifndef INPUT_H
+#define INPUT_H
 
-#include "windows_input.h"
+// Crossplatform: methods needs to be implemented for every platform (Windows/MD407)
 
-#elif MD407
+// Returns 1 if key is pressed, 0 else.
+int getKeyDown(unsigned char keyCode);
 
-#include "md407_input.h"
-
-#endif
+#endif //INPUT_H
