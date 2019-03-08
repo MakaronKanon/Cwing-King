@@ -6,8 +6,8 @@ During development there was no access to test on the physical MD407 (with Corte
 Therefor this project is designed it in a way making it possible to build it directly for Windows using SDL.
 
 How to build and run:
-Build for windows (probably works for Linux, osx... to): run the makefile with make and it should create an executable inside the windowsout directory.
-(You can build it for MD407 with the codelite project, but you probably don't want to)
+* Build for windows (probably works for Linux, osx... to): run the makefile with make and it should create an executable inside the windowsout directory. (probably need GCC on path)
+* (You can build it for MD407 with the codelite project, but you probably don't want to)
 
 Technlogies learnt/used:
 * Communicating with physical ports.
@@ -17,7 +17,7 @@ Technlogies learnt/used:
     * Ascii Display
     * Keyboard
 * General C programming
-    * Separating in multiple c-files and h-files
+    * Separating code in multiple c-files and h-files
     * Programming for multiple architectures
     * Handling simple sprite images
     * Simple random number generator
