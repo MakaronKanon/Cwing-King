@@ -1,5 +1,5 @@
 #include <obstacle.h>
-#include "snake.h"
+#include "player.h"
 #include "graphics.h"
 #include "asciidisplay.h"
 //#include <stdio.h>

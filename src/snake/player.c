@@ -1,31 +1,14 @@
-#include "snake.h"
+#include "player.h"
 
 #include "graphics.h"
 #include "input.h"
 #include "keycodes.h"
 #include "stdio.h"
 
+Snake snake;
+
 static void updateSnake(Snake* snake)
-{
-	/*// Get input
-	if(getKeyDown(KEYCODE_RIGHT))
-	{
-		snake->xDir = 1;
-	}
-	else if (getKeyDown(KEYCODE_LEFT))
-	{
-		snake->xDir = -1;
-	}
-	if(getKeyDown(KEYCODE_UP))
-	{
-		snake->yDir = -1;
-	}
-	else if (getKeyDown(KEYCODE_DOWN))
-	{
-		snake->yDir = 1;
-	}
-	*/
-	
+{	
 	//todo: yDir ska accelera till en maxHastighet, när snake swingar ska hastigheten sättas till lite uppåt
 	snake->xDir = 1;
 	//snake->yDir = 1;

@@ -1,8 +1,8 @@
 #include "obstacle.h"
-#include "snake.h"
+#include "player.h"
 #include "graphics.h"
 #include "asciidisplay.h"
-#include "obsticalManager.h"
+#include "obstacle_manager.h"
 //#include <stdlib.h>
 #include "rng.h"
 

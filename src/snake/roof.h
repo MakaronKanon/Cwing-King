@@ -1,6 +1,6 @@
 #ifndef ROOF_H
 #define ROOF_H
-#include "snake.h"
+#include "player.h"
 
 // Represents a roof
 typedef struct tRoof

@@ -1,5 +1,5 @@
 #ifdef MD407
-#include "snake.h"
+#include "player.h"
 
 void setPixel(int x, int y, int set)
 {

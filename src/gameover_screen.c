@@ -4,7 +4,7 @@
 #include "keycodes.h"
 #include "Gameover.xbm"
 #include "graphics.h"
-#include "snake.h"
+#include "player.h"
 
 //todo: this is copied from splashScreen, we shall not copy.
 void displayGameoverImage()
@@ -38,7 +38,8 @@ void displayGameoverImage()
 		}
 	}
 	displayBuffer();
-		//clearBuffer();
+	// Clear gameOver screen image.
+	clearBuffer(); 
 }
 
 

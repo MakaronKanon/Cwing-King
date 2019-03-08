@@ -1,10 +1,12 @@
 #ifndef ROPE_H
 #define ROPE_H
 
-#include "snake.h"
+#include "player.h"
 #include "vec2i.h"
 
 #include "roof.h"
+
+
 
 // Represents a rope
 typedef struct tRope
@@ -23,6 +25,8 @@ typedef struct tRope
 	
 	
 } Rope;
+
+extern Rope rope;
 
 // Sets the rope to default values
 void initRope(Rope* rope, Snake* player, Roof* roof);

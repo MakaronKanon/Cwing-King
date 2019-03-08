@@ -23,6 +23,8 @@ typedef struct tSnake
 	
 } Snake;
 
+extern Snake snake;
+
 // Sets a snake to default values
 void initSnake(Snake* snake);
 

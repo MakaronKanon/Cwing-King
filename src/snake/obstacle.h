@@ -1,7 +1,7 @@
 #ifndef OBSTACLE_H
 #define OBSTACLE_H
 
-#include "snake.h"
+#include "player.h"
 
 // Representation of obstacle
 typedef struct tObstacle 

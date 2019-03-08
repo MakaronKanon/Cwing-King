@@ -1,7 +1,7 @@
 # Makefile for generating executable for Windows ??x86??
 
 
-o_files = windowsout/startup.o windowsout/windows_graphics.o windowsout/windows_delay.o windowsout/windows_input.o windowsout/snake.o windowsout/windows_init.o \
+o_files = windowsout/startup.o windowsout/windows_graphics.o windowsout/windows_delay.o windowsout/windows_input.o windowsout/player.o windowsout/windows_init.o \
 windowsout/windows_platform.o windowsout/obstacle.o windowsout/windows_asciidisplay.o windowsout/splashscreen.o \
 windowsout/gameover_screen.o windowsout/roof.o windowsout/rope.o windowsout/obstacle_manager.o windowsout/rng.o
 
@@ -30,7 +30,7 @@ windowsout/windows_delay.o: src/windows/windows_delay.c
 windowsout/windows_input.o: src/windows/windows_input.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
-windowsout/snake.o: src/snake/snake.c
+windowsout/player.o: src/snake/player.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
 windowsout/windows_init.o: src/windows/windows_init.c

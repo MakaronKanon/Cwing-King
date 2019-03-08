@@ -1,5 +1,5 @@
 #include "rope.h"
-#include "snake.h"
+#include "player.h"
 #include "input.h"
 #include "keycodes.h"
 #include "graphics.h"
@@ -7,6 +7,9 @@
 #include "asciidisplay.h"
 #include "math.h"
 //#include <stdio.h>
+
+Rope rope; // We only one rope at once.
+
 
 static void updateRope();
 static void renderRope();

@@ -5,7 +5,7 @@
 
 //#include "main.h"
 #include <stdbool.h>
-#include "snake.h"
+#include "player.h"
 
 static void putPixel(SDL_Surface* surface, unsigned int x, unsigned int y, Uint32 newPixelCol);
 

@@ -20,6 +20,7 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="src/snake/vec2i.h"/>
     <File Name="src/gameover_screen.c"/>
     <File Name="src/gameover_screen.h"/>
     <File Name="src/splashscreen.c"/>
@@ -30,18 +31,17 @@
     <File Name="src/asciidisplay.h"/>
     <File Name="src/platform.h"/>
     <File Name="src/platform_init.h"/>
-    <VirtualDirectory Name="snake">
+    <VirtualDirectory Name="objects">
+      <File Name="src/snake/player.h"/>
+      <File Name="src/snake/player.c"/>
       <File Name="src/snake/obstacle_manager.h"/>
       <File Name="src/snake/obstacle_manager.c"/>
       <File Name="src/snake/roof.h"/>
       <File Name="src/snake/roof.c"/>
-      <File Name="src/snake/vec2i.h"/>
       <File Name="src/snake/rope.h"/>
       <File Name="src/snake/rope.c"/>
       <File Name="src/snake/obstacle.h"/>
       <File Name="src/snake/obstacle.c"/>
-      <File Name="src/snake/snake.c"/>
-      <File Name="src/snake/snake.h"/>
     </VirtualDirectory>
     <File Name="src/keycodes.h"/>
     <File Name="src/input.h"/>
