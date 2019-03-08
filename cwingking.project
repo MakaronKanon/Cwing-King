@@ -53,7 +53,6 @@
       <File Name="src/md407/md407_asciidisplay.c"/>
       <File Name="src/md407/md407_platform.c"/>
       <File Name="src/md407/md407_init.c"/>
-      <File Name="src/md407/md407_init.h"/>
       <File Name="src/md407/md407_input.c"/>
       <File Name="src/md407/md407_types.h"/>
       <File Name="src/md407/md407_display_constants.h"/>
@@ -61,7 +60,6 @@
       <File Name="src/md407/md407_settings.h"/>
       <File Name="src/md407/md407_delay.c"/>
       <File Name="src/md407/md407_delay.h"/>
-      <File Name="src/md407/md407_input.h"/>
       <File Name="src/md407/md407_graphics.h"/>
       <File Name="src/md407/md407_graphics.c"/>
     </VirtualDirectory>
@@ -69,9 +67,7 @@
       <File Name="src/windows/windows_asciidisplay.c"/>
       <File Name="src/windows/windows_platform.c"/>
       <File Name="src/windows/windows_init.c"/>
-      <File Name="src/windows/windows_init.h"/>
       <File Name="src/windows/windows_input.c"/>
-      <File Name="src/windows/windows_input.h"/>
       <File Name="src/windows/windows_delay.h"/>
       <File Name="src/windows/windows_delay.c"/>
       <File Name="src/windows/windows_graphics.h"/>
