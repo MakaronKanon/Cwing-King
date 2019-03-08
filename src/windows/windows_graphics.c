@@ -78,8 +78,7 @@ static void putPixel(SDL_Surface* surface, unsigned int x, unsigned int y, Uint3
 
 void setPixel(int x, int y, int set)
 {    
-    extern Snake snake;
-    x -= snake.xDelta;
+    x -= player.xDelta;
     
 	if (x > 127 || x < 0 || y < 0 || y > 63)
 	{

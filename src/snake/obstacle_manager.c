@@ -24,7 +24,7 @@ void obstaclesRender()
     }
 }
 
-void updateObstacles(Snake* snake)
+void updateObstacles(Player* snake)
 {
 	for(int i=0; i<nObsticals; ++i)
     {

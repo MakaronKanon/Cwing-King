@@ -14,7 +14,7 @@ Rope rope; // We only one rope at once.
 static void updateRope();
 static void renderRope();
 
-void initRope(Rope* rope, Snake* player, Roof* roof)
+void initRope(Rope* rope, Player* player, Roof* roof)
 {
 	rope->update = updateRope;
 	rope->render = renderRope;
@@ -147,8 +147,7 @@ static void updateRope(Rope* rope)
 	{ // stop swinging
 		rope->active = 0;
         initRope(rope,rope->player,rope->roof);
-		extern Snake snake;
-		bounce(&snake);
+		bounce(&player);
 	}
 }
 

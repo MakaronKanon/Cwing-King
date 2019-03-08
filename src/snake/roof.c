@@ -5,7 +5,7 @@
 
 Roof roof;
 
-void renderRoof(Snake* snake)
+void renderRoof(Player* snake)
 {
     int xOffset = snake->xDelta;
     roof.xPos = xOffset;

@@ -4,7 +4,7 @@
 #include "player.h"
 
 // Update obstacles state
-void updateObstacles(Snake* snake);
+void updateObstacles(Player* snake);
 
 // Spawn a obstacle
 void spawnObstical();

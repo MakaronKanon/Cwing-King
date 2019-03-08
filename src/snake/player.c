@@ -5,56 +5,56 @@
 #include "keycodes.h"
 #include "stdio.h"
 
-Snake snake;
+Player player;
 
-static void updateSnake(Snake* snake)
+static void updateSnake(Player* player)
 {	
 	//todo: yDir ska accelera till en maxHastighet, när snake swingar ska hastigheten sättas till lite uppåt
-	snake->xDir = 1;
+	player->xDir = 1;
 	//snake->yDir = 1;
-	snake->xPos += snake->xDir;
-	snake->yPos += snake->yDir;
+	player->xPos += player->xDir;
+	player->yPos += player->yDir;
 	
-	if (snake->yDir < 1)
-		snake->yDir++; // accelerate down
+	if (player->yDir < 1)
+		player->yDir++; // accelerate down
     
-    snake->xDelta = snake->xPos - snake->xStartPos;
+    player->xDelta = player->xPos - player->xStartPos;
     
-    if(snake->yPos > 64) 
+    if(player->yPos > 64) 
     {
-        snake->dead = 1;
+        player->dead = 1;
     }
 }
 
-static void renderSnake(Snake* snake)
+static void renderSnake(Player* player)
 {
-	for (int x = 0; x < snake->size; x++)
+	for (int x = 0; x < player->size; x++)
 	{
-		for (int y = 0; y < snake->size; y++)
+		for (int y = 0; y < player->size; y++)
 		{
-			setPixel(x + snake->xPos, y + snake->yPos, 1);
+			setPixel(x + player->xPos, y + player->yPos, 1);
 		}
 	}
 }
 
 // This make the player fly up a bit
-void bounce(Snake* snake)
+void bounce(Player* player)
 {
-	snake->yDir = -3; // we have to little resolution
+	player->yDir = -3; // we have to little resolution
 }
 
-void initSnake(Snake* snake)
+void initSnake(Player* player)
 {
-    snake->xStartPos = 10;
-	snake->xPos = snake->xStartPos;
-	snake->yPos = 10;
-    snake->xDelta = 0;
+    player->xStartPos = 10;
+	player->xPos = player->xStartPos;
+	player->yPos = 10;
+    player->xDelta = 0;
 	
-	snake->xDir = 1;
-	snake->yDir = 1;
-	snake->size = 4;
-	snake->dead = 0;
+	player->xDir = 1;
+	player->yDir = 1;
+	player->size = 4;
+	player->dead = 0;
 	
-	snake->render = renderSnake;
-	snake->update = updateSnake;
+	player->render = renderSnake;
+	player->update = updateSnake;
 }

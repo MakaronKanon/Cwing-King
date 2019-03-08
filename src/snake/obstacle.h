@@ -12,7 +12,7 @@ typedef struct tObstacle
     int width;
     int hight;
     
-    void (*update)(struct tObstacle*, Snake* snake);
+    void (*update)(struct tObstacle*, Player* snake);
     void (*render)(struct tObstacle*);
 } obstacle;
 

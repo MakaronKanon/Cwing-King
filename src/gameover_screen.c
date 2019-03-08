@@ -31,8 +31,7 @@ void displayGameoverImage()
 			{
 				if (byte & (1 << k))
 				{
-					extern Snake snake;
-					setPixel(8 * x + k + snake.xDelta, y, 1);
+					setPixel(8 * x + k + player.xDelta, y, 1);
 				}
 			}
 		}

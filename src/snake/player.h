@@ -2,7 +2,7 @@
 #define SNAKE_H
 
 // Represents the snake
-typedef struct tSnake
+typedef struct tPlayer
 {
 	int xDir;
 	int yDir;
@@ -16,19 +16,19 @@ typedef struct tSnake
 	
 	int size;
 	
-	void (*update)(struct tSnake* snake);
-	void (*render)(struct tSnake* snake);
+	void (*update)(struct tPlayer* player);
+	void (*render)(struct tPlayer* player);
 	
 	int dead;
 	
-} Snake;
+} Player;
 
-extern Snake snake;
+extern Player player;
 
 // Sets a snake to default values
-void initSnake(Snake* snake);
+void initSnake(Player* player);
 
 // Makes snake bounce
-void bounce(Snake* snake);
+void bounce(Player* player);
 
 #endif

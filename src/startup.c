@@ -30,8 +30,8 @@ void main(void)
 	while(!shouldExit)
 	{
 		// Init objects before every play
-		initSnake(&snake);
-		initRope(&rope, &snake, &roof);
+		initSnake(&player);
+		initRope(&rope, &player, &roof);
         initRoof();
 		spawnInitialObstacles();
 
@@ -55,7 +55,7 @@ static void playonegame()
 			shouldExit = 1;
 			break;
 		}
-		if (snake.dead)
+		if (player.dead)
 		{
 			// Show gameover screen before we jump out
 			displayGameoverScreen(10);
@@ -75,16 +75,16 @@ static void playonegame()
 static void update()
 {
 	// Update all objects
-	snake.update(&snake);
+	player.update(&player);
 	rope.update(&rope);
-	updateObstacles(&snake);
+	updateObstacles(&player);
 }
 
 static void render()
 {
 	// Render all objects to buffer
-	snake.render(&snake);
+	player.render(&player);
 	rope.render(&rope);
     obstaclesRender();
-    renderRoof(&snake);
+    renderRoof(&player);
 }

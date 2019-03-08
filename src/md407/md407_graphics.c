@@ -3,8 +3,7 @@
 
 void setPixel(int x, int y, int set)
 {
-	extern Snake snake;
-    x -= snake.xDelta;
+    x -= player.xDelta;
 	void setPixelBuffer(unsigned int x, unsigned int y, int set);
 	setPixelBuffer(x, y, set);
 }
