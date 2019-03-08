@@ -14,10 +14,6 @@ __asm volatile(
 	) ;
 }
 
-#define GPIO_D_BASE (0x40020C00)
-typedef volatile unsigned int portType;
-#define portD ((portType*) GPIO_D_BASE)
-
 void platform_init()
 {
 	
@@ -38,14 +34,14 @@ void platform_init()
 	
 	// Ställ in GPIO_MODER
 
-    portDNew->moder &= 0x0000FFFF;
-    portDNew->moder |= 0x55000000;
+    portD->moder &= 0x0000FFFF;
+    portD->moder |= 0x55000000;
 
-    portDNew->otyper &= 0xFFFF00FF;
-    portDNew->otyper |= 0x00000F00;
+    portD->otyper &= 0xFFFF00FF;
+    portD->otyper |= 0x00000F00;
 
-    portDNew->pupdr &= 0x0000FFFF;
-    portDNew->pupdr |= 0x00AA0000;
+    portD->pupdr &= 0x0000FFFF;
+    portD->pupdr |= 0x00AA0000;
 
 	// init ascii
 	ascii_init();

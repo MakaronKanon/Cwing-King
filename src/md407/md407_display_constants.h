@@ -1,5 +1,8 @@
 #ifndef MD407_DISPLAY_CONSTANTS_H
 #define MD407_DISPLAY_CONSTANTS_H
+
+// These are bit constants used for graphic display
+
 // Bit för Enable i styrregistret
 #define B_E 0x40
 // Bit för SELECT, ska vara 0-grafikdisplay, 1-asciidisplay
@@ -27,4 +30,5 @@
 #define CMD_LCD_DISP_START 0xC0
 // bitmask för BUSY flaggan
 #define LCD_BUSY 0x80
+
 #endif //MD407_DISPLAY_CONSTANTS_H

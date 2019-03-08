@@ -48,7 +48,7 @@ void clearBuffer()
 // För att få tillgång till delay funktionalitet
 #include "md407_delay.h"
 
-#include "md407_types.h"
+#include "types.h"
 
 // Här ska vi ha en buffer på hela skärmen 64 * 2 * 64, vi kan spara dom i rätt format direkt
 // 128 bredd 8 höjd
@@ -82,9 +82,9 @@ void setPixelBuffer(unsigned int x, unsigned int y, int set)
 	{
 		return; // invalid range
 	}
-	uint8_t page = y / 8;
-	uint8_t bit = y % 8;
-	uint8_t bitChangeMask = 1 << bit; // bit är 1 blir mask 2, bit är 7 blir mask 0x80
+	uint8 page = y / 8;
+	uint8 bit = y % 8;
+	uint8 bitChangeMask = 1 << bit; // bit är 1 blir mask 2, bit är 7 blir mask 0x80
 	
 	//pChangedBuffer[x][page] = 1;
 	//changedBuffer[x][page] = 1;
@@ -210,7 +210,7 @@ void swapBuffers()
  * @brief Välj grafisk-display och ettställ de bitar som är i x
  * @param x står för flaggbitarna som ska sättas i styrregistret. Bitar som är 0 är opåverkade.
  */
-void graphic_ctrl_bit_set(uint8_t x)
+void graphic_ctrl_bit_set(uint8 x)
 {
 	// Ettställda bitar i x sätts och B_SELECT nollställs för att välja grafisk display 
 	//*portEOdrLow = (*portEOdrLow | x) & ~B_SELECT;
@@ -221,7 +221,7 @@ void graphic_ctrl_bit_set(uint8_t x)
  * @brief Välj grafisk-display och nollställ de bitar som är i x
  * @param x står för flaggbitarna som ska nollställas i styrregistret. Andra bitar är opåverkade.
  */
-void graphic_ctrl_bit_clear(uint8_t x)
+void graphic_ctrl_bit_clear(uint8 x)
 {
 	// Nollställ ettställda bitar i x och nollställ select
 	//*portEOdrLow = (*portEOdrLow & ~x) & ~B_SELECT;
@@ -232,7 +232,7 @@ void graphic_ctrl_bit_clear(uint8_t x)
  * @brief konfigurerar CS-signalerna
  * @param controller är B_CS1 eller B_CS2 eller båda
  */
-void select_controller(uint8_t controller)
+void select_controller(uint8 controller)
 {
 		switch(controller)
 		{
@@ -269,7 +269,7 @@ void graphic_wait_ready()
 	
 	delay_500ns(); // Vänta en halv cykel, tills vi ska sätta på E
 	
-	uint8_t read; // will save read in this byte.
+	uint8 read; // will save read in this byte.
 	while (1)
 	{
 		graphic_ctrl_bit_set(B_E); // Sätt E = 1
@@ -298,7 +298,7 @@ void graphic_wait_ready()
  * @param controller är vilken skärm som ska läsas
  * @return the byte that represent 8 pixels / bits.
  */
-uint8_t graphic_read(uint8_t controller)
+uint8 graphic_read(uint8 controller)
 {
 	graphic_ctrl_bit_clear(B_E); // Sätt E = 0
 	// sätt bitar 15-8 till ingångnar och 7-0 som utgångar
@@ -313,7 +313,7 @@ uint8_t graphic_read(uint8_t controller)
 	graphic_ctrl_bit_set(B_E); // E = 1
 	delay_500ns(); // Nu kommer den skriva till oss, vi ska alltså läsa nästa
 	//uint8_t readValue = *portEIdrHigh; // Läs en byte från porten 
-	uint8_t readValue = portE->idrHigh;
+	uint8 readValue = portE->idrHigh;
 	graphic_ctrl_bit_clear(B_E);
 	
 	// sätt alla bitar till ut igen.
@@ -343,14 +343,14 @@ uint8_t graphic_read(uint8_t controller)
  * so this method calls it twice so we get the data expected.
  * @param controller är vilken skärm som ska läsas
  */
-uint8_t graphic_read_data(uint8_t controller)
+uint8 graphic_read_data(uint8 controller)
 {
 	graphic_read(controller); // returnerar nonsense
 	return graphic_read(controller); // returnerar korrekt data
 }
 
 // Writes value display, first it sets controller tho
-void graphic_write(uint8_t value, uint8_t controller)
+void graphic_write(uint8 value, uint8 controller)
 {
 	//*portEOdrHigh = value; // Skriver datan
 	portE->odrHigh = value;
@@ -380,7 +380,7 @@ void graphic_write(uint8_t value, uint8_t controller)
 }
 
 // Writes command to display
-void graphic_write_command(uint8_t command, uint8_t controller)
+void graphic_write_command(uint8 command, uint8 controller)
 {
 	graphic_ctrl_bit_clear(B_E);
 	select_controller(controller); // väljer CS_1, CS_2 båda eller inga
@@ -389,7 +389,7 @@ void graphic_write_command(uint8_t command, uint8_t controller)
 }
 
 // Writes data to display
-void graphic_write_data(uint8_t data, uint8_t controller)
+void graphic_write_data(uint8 data, uint8 controller)
 {
 	graphic_ctrl_bit_clear(B_E);
 	select_controller(controller); // väljer CS_1, CS_2 båda eller inga
@@ -452,8 +452,8 @@ void pixel(unsigned x, unsigned y, unsigned set)
 	// Första ska vi läsa hela byten
 	
 	// Omvandla x till chipset samt lokal x
-	uint8_t chipSet;
-	uint8_t address;
+	uint8 chipSet;
+	uint8 address;
 	if (x <= 64)
 	{
 		address = x - 1; // indexad från 0
@@ -465,17 +465,17 @@ void pixel(unsigned x, unsigned y, unsigned set)
 		chipSet = B_CS2;	
 	}
 	
-	uint8_t page = (y - 1) / 8;
-	uint8_t bit = (y - 1) % 8;
+	uint8 page = (y - 1) / 8;
+	uint8 bit = (y - 1) % 8;
 	
 	graphic_write_command(CMD_LCD_SET_ADD | address, chipSet);
 	graphic_write_command(CMD_LCD_SET_PAGE | page, chipSet);
-	uint8_t readPage = graphic_read_data(chipSet);
+	uint8 readPage = graphic_read_data(chipSet);
 	
 	// Eftersom vi läste måste vi sätta addressen igen eftersom den autoincas då.
 	graphic_write_command(CMD_LCD_SET_ADD | address, chipSet);
 	
-	uint8_t bitChangeMask = 1 << bit; // bit är 1 blir mask 2, bit är 7 blir mask 0x80
+	uint8 bitChangeMask = 1 << bit; // bit är 1 blir mask 2, bit är 7 blir mask 0x80
 	
 	if (set == 0)
 	{

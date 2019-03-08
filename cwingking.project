@@ -20,6 +20,7 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="src/types.h"/>
     <File Name="src/rng.h"/>
     <File Name="src/rng.c"/>
     <File Name="src/gameoverScreen.h"/>
@@ -54,7 +55,6 @@
       <File Name="src/md407/md407_platform.c"/>
       <File Name="src/md407/md407_init.c"/>
       <File Name="src/md407/md407_input.c"/>
-      <File Name="src/md407/md407_types.h"/>
       <File Name="src/md407/md407_display_constants.h"/>
       <File Name="src/md407/md407_ports.h"/>
       <File Name="src/md407/md407_settings.h"/>
