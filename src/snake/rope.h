@@ -3,9 +3,10 @@
 
 #include "snake.h"
 #include "vec2i.h"
+
 #include "roof.h"
 
-
+// Represents a rope
 typedef struct tRope
 {
 	vec2i start; // Start point (should be were player is at)
@@ -23,6 +24,7 @@ typedef struct tRope
 	
 } Rope;
 
+// Sets the rope to default values
 void initRope(Rope* rope, Snake* player, Roof* roof);
 
 

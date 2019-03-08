@@ -1,6 +1,7 @@
 #ifndef SNAKE_H
 #define SNAKE_H
 
+// Represents the snake
 typedef struct tSnake
 {
 	int xDir;
@@ -22,8 +23,10 @@ typedef struct tSnake
 	
 } Snake;
 
+// Sets a snake to default values
 void initSnake(Snake* snake);
 
+// Makes snake bounce
 void bounce(Snake* snake);
 
 #endif

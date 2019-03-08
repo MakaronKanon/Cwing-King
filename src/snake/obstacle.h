@@ -1,5 +1,9 @@
+#ifndef OBSTACLE_H
+#define OBSTACLE_H
+
 #include "snake.h"
 
+// Representation of obstacle
 typedef struct tObstacle 
 {
     int xPos;   // bas position is for buttom left corner
@@ -15,4 +19,7 @@ typedef struct tObstacle
 extern obstacle obsticals[];
 extern unsigned int nObsticals;
 
+// Create a obstacle
 void createObstecle(int x, int hight);
+
+#endif //OBSTACLE_H
