@@ -6,4 +6,4 @@
 // Returns 1 if we should exit our game, 0 else
 int platform_should_exit();
 
-#endif
+#endif //PLATFORM_H

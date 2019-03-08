@@ -1,22 +1,27 @@
-/*
-/**
- * @brief sets the pixel on the buffer.
- * @param x coord, 0 is most left, 127 is most right
- * @param y coord, 0 is top, 63 is bottom
- * @param set, if 1-activates pixel, if 0-deactivates the pixel
- */
- /*
+#ifndef GRAPHICS_H
+#define GRAPHICS_H
+
+// Crossplatform: methods needs to be implemented for every platform (Windows/MD407)
+
+// Initalizes graphics
+// should be called before using any other graphic-methods.
+void initGraphics();
+
+// This method clears the buffer, 
+// should be called before rendering stuff to the buffer
+void clearBuffer();
+
+// Sets a pixel on the buffer
+// (We only support monochrome 128*64 display)
+// X coord: 0 is most left, 127 is most right
+// Y coord: 0 is top, 63 is bottom
+// if set is 1 it activates the pixel else it gets deactivate
 void setPixel(int x, int y, int set);
 
-extern unsigned int backBuffer[128][8];*/
+// Renders the buffer to the screen
+void displayBuffer();
 
+// Before exiting, call this to release memory
+void cleanUpGraphics();
 
-#ifdef WINDOWS
-
-#include "windows_graphics.h"
-
-#elif MD407
-
-#include "md407_graphics.h"
-
-#endif
+#endif // GRAPHICS_H

@@ -41,7 +41,7 @@ void clearBuffer()
 #include "md407_ports.h"
 // Vi behöver veta vilka bitar som betyder vad
 // Främst för att få vår uint8_t
-#include "md407_graphics.h"
+#include "graphics.h"
 
 #include "md407_display_constants.h"
 

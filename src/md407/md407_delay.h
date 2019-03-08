@@ -1,12 +1,7 @@
 #ifndef MD407_DELAY_H
 #define MD407_DELAY_H
 
-/**
- * @brief blocks execution for some milliseconds.
- * @param milliSecs, how long to delay.
- */
-void delayMilliSecs(unsigned int milliSecs);
-
+// is this headerfile used?
 void delay_milli(unsigned int millis);
 void delay_micro(unsigned int micros);
 void delay_250ns(); // Deklaration,prototyp

@@ -60,7 +60,6 @@
       <File Name="src/md407/md407_settings.h"/>
       <File Name="src/md407/md407_delay.c"/>
       <File Name="src/md407/md407_delay.h"/>
-      <File Name="src/md407/md407_graphics.h"/>
       <File Name="src/md407/md407_graphics.c"/>
     </VirtualDirectory>
     <VirtualDirectory Name="windows">
@@ -68,9 +67,7 @@
       <File Name="src/windows/windows_platform.c"/>
       <File Name="src/windows/windows_init.c"/>
       <File Name="src/windows/windows_input.c"/>
-      <File Name="src/windows/windows_delay.h"/>
       <File Name="src/windows/windows_delay.c"/>
-      <File Name="src/windows/windows_graphics.h"/>
       <File Name="src/windows/windows_graphics.c"/>
     </VirtualDirectory>
   </VirtualDirectory>
