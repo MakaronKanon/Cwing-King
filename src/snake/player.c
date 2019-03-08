@@ -9,8 +9,7 @@ Player player;
 
 static void updateSnake(Player* player)
 {	
-	//todo: yDir ska accelera till en maxHastighet, när snake swingar ska hastigheten sättas till lite uppåt
-	player->xDir = 1;
+	//player->xDir = 1;
 	//snake->yDir = 1;
 	player->xPos += player->xDir;
 	player->yPos += player->yDir;

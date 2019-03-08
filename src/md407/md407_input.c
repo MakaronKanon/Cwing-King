@@ -1,6 +1,3 @@
-#ifdef MD407
-
-
 // Input från portD
 #include "md407_ports.h"
 #include "keycodes.h"
@@ -23,8 +20,6 @@ static void activateRow(int row) {
 	bitRow <<= 8; // shifta en byte åt vänster 
 	portD->odr &= 0xFFFF0FFF;
 	portD->odr |= bitRow;
-	//*(portD + 5) &= 0xFFFF0FFF;
-	//*(portD + 5) |= bitRow;
 }
 
 // Return row that it reads from 0 to 3, -1 if nothing is inputted
@@ -101,5 +96,3 @@ int getKeyDown(unsigned char keyCode)
 	
 	return 0;
 }
-
-#endif //MD407

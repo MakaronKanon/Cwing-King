@@ -3,39 +3,38 @@
 #include "graphics.h"
 #include "asciidisplay.h"
 #include "obstacle_manager.h"
-//#include <stdlib.h>
 #include "rng.h"
 
-void spawnObstical(int x)
+void spawnObstacle(int x)
 {
     //min 16 max 36
     //int hight = rand() % 20 + 16;
 	//int hight = 16;
-	int hight = genRandomNum() % 20 + 16;
+	int height = genRandomNum() % 20 + 16;
     
-    createObstecle(x, hight);
+    createObstacle(x, height);
 }
 
 void obstaclesRender()
 {
-    for(int i=0; i<nObsticals; ++i)
+    for(int i=0; i<numObstacles; ++i)
     {
-        obsticals[i].render(&obsticals[i]);
+        obstacles[i].render(&obstacles[i]);
     }
 }
 
-void updateObstacles(Player* snake)
+void updateObstacles(Player* player)
 {
-	for(int i=0; i<nObsticals; ++i)
+	for(int i=0; i<numObstacles; ++i)
     {
-		if (obsticals[i].xPos < snake->xPos - 15 )
+		if (obstacles[i].xPos < player->xPos - 15 )
 		{
-			int hight = genRandomNum() % 20 + 16;
-			obsticals[i].hight = hight;
-			obsticals[i].xPos += 128;
+			int height = genRandomNum() % 20 + 16;
+			obstacles[i].height = height;
+			obstacles[i].xPos += 128;
 		}
 			
-        obsticals[i].update(&obsticals[i], snake);
+        obstacles[i].update(&obstacles[i], player);
 		
     }
 }
@@ -45,6 +44,6 @@ void spawnInitialObstacles()
 	// create 2 obstacles
 	for (int i = 1; i < 3; i++)
 	{
-		spawnObstical(i * 64);
+		spawnObstacle(i * 64);
 	}
 }

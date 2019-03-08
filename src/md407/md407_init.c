@@ -28,7 +28,6 @@ void platform_init()
 	*((unsigned long*) 0xE000ED08) = 0x2001C000;
 	
 	#endif
-	// We probably don't need below code, but we might want to initalize something else in future.
 	
 	// 7seg-disp port D0-7
 	

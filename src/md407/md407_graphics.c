@@ -19,22 +19,12 @@ void initGraphics()
 {
 	void graphic_initialize();
 	graphic_initialize();
-	//clearOldChangedBuffer();
-	//clearChangedBuffer();
-	
 }
 
 void cleanUpGraphics()
 {
 	// Unused since we never exit game.
 }
-/* Instead directly use old clearBuffer()
-void clearBuffer()
-{
-	
-}*/
-
-// Below copy pasted
 
 // Vi behöver ha tillgång till portE
 #include "md407_ports.h"
@@ -53,26 +43,6 @@ void clearBuffer()
 // 128 bredd 8 höjd
 uint8 pixelBuffer[128][8];
 
-/*// Om värdet är 1 har den ändrats, annars ej.
-uint8 changedBuffer[128][8];
-
-uint8 oldChangedBuffer[128][8];
-
-uint8 (**pChangedBuffer) = changedBuffer;
-uint8 (**pOldChangedBuffer) = oldChangedBuffer;*/
-/*
-void fillBufferBlack()
-{
-	for (int x = 0; x < 128; x++)
-	{
-		for (int y = 0; y < 8; y++)
-		{
-			pixelBuffer[x][y] = 0xFF;
-			changedBuffer[x][y] = 1;
-		}
-	}
-}*/
-
 void setPixelBuffer(unsigned int x, unsigned int y, int set)
 {
 	x--;
@@ -84,10 +54,7 @@ void setPixelBuffer(unsigned int x, unsigned int y, int set)
 	uint8 page = y / 8;
 	uint8 bit = y % 8;
 	uint8 bitChangeMask = 1 << bit; // bit är 1 blir mask 2, bit är 7 blir mask 0x80
-	
-	//pChangedBuffer[x][page] = 1;
-	//changedBuffer[x][page] = 1;
-	
+
 	if (set == 1)
 	{
 		pixelBuffer[x][page] |= bitChangeMask;
@@ -97,30 +64,6 @@ void setPixelBuffer(unsigned int x, unsigned int y, int set)
 		pixelBuffer[x][page] &= ~bitChangeMask;
 	}
 }
-/*
-void clearChangedBuffer()
-{
-	for (int x = 0; x < 128; x++)
-	{
-		for (int y = 0; y < 8; y++)
-		{
-			//changedBuffer[x][y] = 0;
-			pChangedBuffer[x][y] = 0;
-		}
-	}
-}
-*/
-/*
-void clearOldChangedBuffer()
-{
-	for (int x = 0; x < 128; x++)
-	{
-		for (int y = 0; y < 8; y++)
-		{
-			pOldChangedBuffer[x][y] = 0;
-		}
-	}
-}*/
 
 void clearBuffer()
 {
@@ -136,10 +79,6 @@ void clearBuffer()
 // vi ska också ha en swapbuffers/render metod som ritar allt på skärmen.
 void swapBuffers()
 {
-
-	// First clear the old one,
-	// then set the new one to the old one
-	
 	
 	// Render two different times, one for each screen
 	for (int screen = 0; screen < 2; screen++)
@@ -159,14 +98,6 @@ void swapBuffers()
 				uint8 page = y;
 				uint8 chipSet;
 				
-				/*// This does not really work as intended, disable for now
-				if (pChangedBuffer[x + screen*64][page] != 1) // dont update if not changed
-				{
-					if (pOldChangedBuffer[x + screen*64][page] != 1)
-						continue;
-					
-				}*/
-				
 				if (screen == 0)
 				{
 					chipSet = B_CS1;
@@ -184,23 +115,6 @@ void swapBuffers()
 			}
 		}
 	}
-	/*
-	uint8** changedBuffer2 = changedBuffer;
-	uint8*** pOldChangedBuffer = &oldChangedBuffer;
-	*pOldChangedBuffer = changedBuffer;
-	
-	uint8*** pChangedBuffer = &changedBuffer;
-	*pChangedBuffer = changedBuffer2;*/
-	//changedBuffer = temp;
-	
-	//oldChangedBuffer[0] = changedBuffer;
-	//changedBuffer = temp;
-	/*uint8** temppOldChangedBuffer = pOldChangedBuffer;
-	pOldChangedBuffer = pChangedBuffer;
-	pChangedBuffer = temppOldChangedBuffer;
-	
-	clearChangedBuffer();*/
-	clearBuffer();
 }
 
 
@@ -432,61 +346,5 @@ void graphic_clear_screen()
 		}
 	}
 }
-
-/**
- * @brief sätter på eller av pixeln på LCD'n
- * @param x är den logiska koordinaten för x-axeln [1, 128], 1 är åt vänster
- * @param y är den logiska koordinaten för y-axeln [1, 64], 1 är uppe
- * @param set är 1 om för att sätta på pixeln och 0 för att stänga av pixeln
- */
- // @deprecated
-void pixel(unsigned x, unsigned y, unsigned set)
-{
-	
-	if (x > 128 || y > 64)
-	{
-		return; // Vi har en ogiltlig koordinat.
-	}
-	
-	// Första ska vi läsa hela byten
-	
-	// Omvandla x till chipset samt lokal x
-	uint8 chipSet;
-	uint8 address;
-	if (x <= 64)
-	{
-		address = x - 1; // indexad från 0
-		chipSet = B_CS1;
-	}
-	else
-	{
-		address = x - 65;
-		chipSet = B_CS2;	
-	}
-	
-	uint8 page = (y - 1) / 8;
-	uint8 bit = (y - 1) % 8;
-	
-	graphic_write_command(CMD_LCD_SET_ADD | address, chipSet);
-	graphic_write_command(CMD_LCD_SET_PAGE | page, chipSet);
-	uint8 readPage = graphic_read_data(chipSet);
-	
-	// Eftersom vi läste måste vi sätta addressen igen eftersom den autoincas då.
-	graphic_write_command(CMD_LCD_SET_ADD | address, chipSet);
-	
-	uint8 bitChangeMask = 1 << bit; // bit är 1 blir mask 2, bit är 7 blir mask 0x80
-	
-	if (set == 0)
-	{
-		graphic_write_data(readPage & ~bitChangeMask, chipSet);
-	}
-	else if (set == 1)
-	{
-		graphic_write_data(readPage | bitChangeMask, chipSet);
-
-	}
-}
-
-// Above copy pasted
 
 #endif // MD407

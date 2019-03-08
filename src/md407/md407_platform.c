@@ -1,4 +1,4 @@
-// Add method for platform
+// Implement platform
 #include "platform.h"
 
 int platform_should_exit()
