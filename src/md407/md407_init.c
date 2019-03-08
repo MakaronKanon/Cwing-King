@@ -20,6 +20,18 @@ typedef volatile unsigned int portType;
 
 void platform_init()
 {
+	
+	#define USBDM
+	#ifdef USBDM
+	
+	/* starta klockor port D och E */
+	*((unsigned long*) 0x40023830) = 0x18;
+	/* starta klockor för SYSCFG */
+	*((unsigned long*) 0x40023844) |= 0x4000;
+	/* Relokera vektotabellen */
+	*((unsigned long*) 0xE000ED08) = 0x2001C000;
+	
+	#endif
 	// We probably don't need below code, but we might want to initalize something else in future.
 	
 	// 7seg-disp port D0-7

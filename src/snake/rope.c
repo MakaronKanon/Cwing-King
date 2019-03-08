@@ -51,7 +51,7 @@ static void updateRope(Rope* rope)
 		int i = 0;
 		while (++i < 1000)
 		{
-			endX += rope->direction.x;
+			//endX += rope->direction.x;
 			endY += rope->direction.y;
 			if (pointCollidesWithRoof(endX, endY, rope->roof))
 			{

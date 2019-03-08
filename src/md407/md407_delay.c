@@ -22,7 +22,7 @@ void delay_250ns()
 	*STK_CTRL = 0;
 	
 	//*(PORTSYSTICKUINT + 1) |= 0x0000002A; // Sätt STK_LOAD till högt, men inte mer än 0x00FFFFFF
-	*STK_LOAD = 0x29;
+	*STK_LOAD = 0x29; // #satt till 1 på labbdator men det var pga usbdm
 	
 	//*(PORTSYSTICKUINT + 2) &= 0xFF000000; // Nollställ STK_VAL
 	*STK_VAL = 0;

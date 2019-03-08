@@ -20,7 +20,9 @@ void initGraphics()
 {
 	void graphic_initialize();
 	graphic_initialize();
-//	clearOldChangedBuffer();
+	//clearOldChangedBuffer();
+	//clearChangedBuffer();
+	
 }
 
 void cleanUpGraphics()
@@ -52,11 +54,14 @@ void clearBuffer()
 // 128 bredd 8 höjd
 uint8 pixelBuffer[128][8];
 
-// Om värdet är 1 har den ändrats, annars ej.
+/*// Om värdet är 1 har den ändrats, annars ej.
 uint8 changedBuffer[128][8];
 
-//uint8 oldChangedBuffer[128][8];
+uint8 oldChangedBuffer[128][8];
 
+uint8 (**pChangedBuffer) = changedBuffer;
+uint8 (**pOldChangedBuffer) = oldChangedBuffer;*/
+/*
 void fillBufferBlack()
 {
 	for (int x = 0; x < 128; x++)
@@ -67,7 +72,7 @@ void fillBufferBlack()
 			changedBuffer[x][y] = 1;
 		}
 	}
-}
+}*/
 
 void setPixelBuffer(unsigned int x, unsigned int y, int set)
 {
@@ -81,7 +86,8 @@ void setPixelBuffer(unsigned int x, unsigned int y, int set)
 	uint8_t bit = y % 8;
 	uint8_t bitChangeMask = 1 << bit; // bit är 1 blir mask 2, bit är 7 blir mask 0x80
 	
-	changedBuffer[x][page] = 1;
+	//pChangedBuffer[x][page] = 1;
+	//changedBuffer[x][page] = 1;
 	
 	if (set == 1)
 	{
@@ -92,18 +98,19 @@ void setPixelBuffer(unsigned int x, unsigned int y, int set)
 		pixelBuffer[x][page] &= ~bitChangeMask;
 	}
 }
-
+/*
 void clearChangedBuffer()
 {
 	for (int x = 0; x < 128; x++)
 	{
 		for (int y = 0; y < 8; y++)
 		{
-			changedBuffer[x][y] = 0;
+			//changedBuffer[x][y] = 0;
+			pChangedBuffer[x][y] = 0;
 		}
 	}
 }
-
+*/
 /*
 void clearOldChangedBuffer()
 {
@@ -111,7 +118,7 @@ void clearOldChangedBuffer()
 	{
 		for (int y = 0; y < 8; y++)
 		{
-			oldChangedBuffer[x][y] = 0;
+			pOldChangedBuffer[x][y] = 0;
 		}
 	}
 }*/
@@ -152,11 +159,11 @@ void swapBuffers()
 				uint8 address = x;
 				uint8 page = y;
 				uint8 chipSet;
-				/*
-				// This does not really work as intended, disable for now
-				if (changedBuffer[x + screen*64][page] != 1) // dont update if not changed
+				
+				/*// This does not really work as intended, disable for now
+				if (pChangedBuffer[x + screen*64][page] != 1) // dont update if not changed
 				{
-					if (oldChangedBuffer[x + screen*64][page] != 1)
+					if (pOldChangedBuffer[x + screen*64][page] != 1)
 						continue;
 					
 				}*/
@@ -189,7 +196,11 @@ void swapBuffers()
 	
 	//oldChangedBuffer[0] = changedBuffer;
 	//changedBuffer = temp;
-	clearChangedBuffer();
+	/*uint8** temppOldChangedBuffer = pOldChangedBuffer;
+	pOldChangedBuffer = pChangedBuffer;
+	pChangedBuffer = temppOldChangedBuffer;
+	
+	clearChangedBuffer();*/
 	clearBuffer();
 }
 

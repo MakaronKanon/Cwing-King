@@ -26,6 +26,13 @@ void main(void)
 {	
 	platform_init();
 	
+	displayAscii("Welcome to Cwing King!", "this will be a challenge.");
+	
+	displayAscii("Before 1 sec", "delay.");
+	delayMilliSecs(1000);
+	displayAscii("After 1 sec", "delay");
+
+	
 	initGraphics();
 //    createObstecle();
 
@@ -45,19 +52,19 @@ void main(void)
 
 void playonegame()
 {
-	#ifdef WINDOWS //todo: remove before build to md407! :)
+	//#ifdef WINDOWS //todo: remove before build to md407! :)
 	displaySplashScreen();
-	#endif
+	//#endif
 	
 	displayAscii("Welcome to Cwing King!", "this will be a challenge.");
 	
 	while (1)
 	{
-		if (platform_should_exit())
+		/*if (platform_should_exit())
 		{
 			shouldExit = 1;
 			break;
-		}
+		}*/
 		if (snake.dead)
 		{
 			snake.dead = 0;
@@ -71,11 +78,11 @@ void playonegame()
 		render();
 		// clear old display
 		displayBuffer();
-		clearBuffer();
+		clearBuffer(); //#was not enabled on MD407
 
 		// 30fps -> 1/30 = 33ms each frame
-		delayMilliSecs(33); // Somewhat target 30 fps.
-		//delayMilliSecs(60); //tempdelay
+		//delayMilliSecs(33); // Somewhat target 30 fps.
+		delayMilliSecs(60); //#was not enabled on MD407
 	}
 }
 
