@@ -1,5 +1,5 @@
-#ifndef OBSTICALMANAGER_H
-#define OBSTICALMANAGER_H
+#ifndef OBSTACLE_MANAGER_H
+#define OBSTACLE_MANAGER_H
 
 #include "snake.h"
 
@@ -15,4 +15,4 @@ void obstaclesRender();
 // Spawn initial obstacles
 void spawnInitialObstacles();
 
-#endif
+#endif //OBSTACLE_MANAGER_H

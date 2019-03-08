@@ -20,19 +20,19 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="src/gameover_screen.c"/>
+    <File Name="src/gameover_screen.h"/>
+    <File Name="src/splashscreen.c"/>
+    <File Name="src/splashscreen.h"/>
     <File Name="src/types.h"/>
     <File Name="src/rng.h"/>
     <File Name="src/rng.c"/>
-    <File Name="src/gameoverScreen.h"/>
-    <File Name="src/gameoverScreen.c"/>
-    <File Name="src/splashScreen.h"/>
-    <File Name="src/splashScreen.c"/>
     <File Name="src/asciidisplay.h"/>
     <File Name="src/platform.h"/>
     <File Name="src/platform_init.h"/>
     <VirtualDirectory Name="snake">
-      <File Name="src/snake/obsticalManager.h"/>
-      <File Name="src/snake/obsticalManager.c"/>
+      <File Name="src/snake/obstacle_manager.h"/>
+      <File Name="src/snake/obstacle_manager.c"/>
       <File Name="src/snake/roof.h"/>
       <File Name="src/snake/roof.c"/>
       <File Name="src/snake/vec2i.h"/>
