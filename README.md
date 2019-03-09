@@ -1,5 +1,6 @@
 # Cwing-King
 A game designed for MD407 computer. This is a lab-exercise in a machine oriented programming course.
+(See game: https://www.youtube.com/watch?v=nIm1kLnfQHo)
 
 During development there was no access to test on the physical MD407 (with Cortex M3). Instead it could only be tested with a simulator (Eterm8) which was really slow.
 
