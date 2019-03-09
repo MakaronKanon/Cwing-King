@@ -5,6 +5,7 @@
 
 #include "SDL.h"
 
+// This value gets polled, let SDL decide if we need to exit.
 int platform_should_exit()
 {
 	// We need to check from SDL if we should exit.

@@ -2,10 +2,19 @@
 #include "SDL.h"
 #include "keycodes.h"
 
+// Implements input.h
+#include "input.h"
+
+// This is not a scalable solution but it is fine since we
+// only want a few keys.
 int getKeyDown(unsigned char keyCode)
 {
+	// Ask SDL for keyboardState
 	SDL_PumpEvents();
 	const Uint8* state = SDL_GetKeyboardState(NULL);
+	
+	// Not using switch since keycodes are const (not macros)
+	// which somewhy C doesn't allow as switch-cases.
 	
 	if (keyCode == KEYCODE_RIGHT)
 	{
@@ -27,13 +36,7 @@ int getKeyDown(unsigned char keyCode)
 	{
 		return state[SDL_SCANCODE_SPACE];
 	}
-	/*
-	switch (keyCode)
-	{
-		case KEYCODE_RIGHT:
-			return state[SDL_SCANCODE_RIGHT];
-	}
-	*/
+	
 	return 0;
 }
 #endif //WINDOWS

@@ -21,7 +21,9 @@ Technlogies learnt/used:
     * Separating code in multiple c-files and h-files
     * Programming for multiple architectures
     * Handling simple sprite images
-    * Simple random number generator
+    * Random number generator
+    * Pointers
+* Debugging with GDB
 * Simple game logic/loop
 * Writing (simple) makefiles
 * Working with git using multiple branches, pull requests, issues, project board

@@ -13,10 +13,10 @@ typedef struct tRope
 {
 	vec2i start; // Start point (should be were player is at)
 	vec2i end; // Where to draw line to
-	vec2i direction; // Which direction is the rope (end) traveling
 	Player* player; // Pointer to player so we can get i's pos
 	Roof* roof;
 	int active; // Bool: Active only when user holds 'swing'-button, else does not render
+	double angle; // angle from endpoint
 	
 	int lenSqr; // length of rope squared
 	

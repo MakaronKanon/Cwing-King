@@ -8,9 +8,8 @@ typedef struct tRoof
     int xPos;
     int yPos;
     
-    
     int width;
-    int hight;
+    int height;
     
     void (*update)(struct tRoof* roof);
     void (*render)(Player* snake);

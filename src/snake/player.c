@@ -7,25 +7,24 @@
 
 Player player;
 
-static void updateSnake(Player* player)
+static void updatePlayer(Player* player)
 {	
-	//player->xDir = 1;
-	//snake->yDir = 1;
 	player->xPos += player->xDir;
 	player->yPos += player->yDir;
 	
-	if (player->yDir < 1)
-		player->yDir++; // accelerate down
+	if (player->yDir > -1)
+		player->yDir--; // accelerate down
     
+	// Calculate delta so other objects can position accordingly
     player->xDelta = player->xPos - player->xStartPos;
     
-    if(player->yPos > 64) 
+    if(player->yPos < 0) 
     {
         player->dead = 1;
     }
 }
 
-static void renderSnake(Player* player)
+static void renderPlayer(Player* player)
 {
 	for (int x = 0; x < player->size; x++)
 	{
@@ -39,21 +38,21 @@ static void renderSnake(Player* player)
 // This make the player fly up a bit
 void bounce(Player* player)
 {
-	player->yDir = -3; // we have to little resolution
+	player->yDir = 3; // we have to little resolution
 }
 
-void initSnake(Player* player)
+void initPlayer(Player* player)
 {
     player->xStartPos = 10;
 	player->xPos = player->xStartPos;
-	player->yPos = 10;
+	player->yPos = 40;
     player->xDelta = 0;
 	
 	player->xDir = 1;
-	player->yDir = 1;
+	player->yDir = -1;
 	player->size = 4;
 	player->dead = 0;
 	
-	player->render = renderSnake;
-	player->update = updateSnake;
+	player->render = renderPlayer;
+	player->update = updatePlayer;
 }

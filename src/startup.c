@@ -30,7 +30,7 @@ void main(void)
 	while(!shouldExit)
 	{
 		// Init objects before every play
-		initSnake(&player);
+		initPlayer(&player);
 		initRope(&rope, &player, &roof);
         initRoof();
 		spawnInitialObstacles();

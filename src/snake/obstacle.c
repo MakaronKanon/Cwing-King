@@ -8,15 +8,13 @@ unsigned int numObstacles = 0;
 
 static void render(Obstacle *this)
 {
-    int h = 0;
-    for(;h<this->height; ++h) 
+    for(int h = 0; h<this->height; h++) 
     {
-        for(int w=0; w<this->width; ++w) 
+        for(int w = 0; w<this->width; w++) 
         {
-            setPixel(this->xPos+w,this->yPos-h,1);   
+            setPixel(this->xPos + w, this->yPos + h,1);   
         }
     }
-
 }
 
 static void detectCollision(int x, int y, Obstacle* this, Player* player)
@@ -48,13 +46,13 @@ static void updateObstacle(Obstacle* this, Player* player)
 
 void initObstacle(Obstacle *current, int height, int x)
 {
-    //64 32 to place in middle of screen.
-    current->xPos=x;//150;
-    current->yPos = 64;
+    current->xPos=x;
     current->render = render;
 	current->update = updateObstacle;
     current->width = 8;
     current->height = height;
+	current->yPos = 0;
+
 } 
 
 void createObstacle(int x, int height)
