@@ -16,10 +16,7 @@ typedef struct tObstacle
     void (*render)(struct tObstacle*);
 } Obstacle;
 
-extern Obstacle obstacles[];
-extern unsigned int numObstacles;
+void initObstacle(Obstacle *current, int height, int x);
 
-// Create a obstacle
-void createObstacle(int x, int height);
 
 #endif //OBSTACLE_H

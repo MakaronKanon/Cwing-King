@@ -5,14 +5,14 @@ o_files = windowsout/startup.o windowsout/windows_graphics.o windowsout/windows_
 windowsout/windows_platform.o windowsout/obstacle.o windowsout/windows_asciidisplay.o windowsout/splashscreen.o \
 windowsout/gameover_screen.o windowsout/roof.o windowsout/rope.o windowsout/obstacle_manager.o windowsout/rng.o
 
-h_includes = -I src/snake -I src/windows -I src/windows/SDL/include -I src/windows/SDL/include/SDL2 -I src
+h_includes = -I src/objects -I src/windows -I src/windows/SDL/include -I src/windows/SDL/include/SDL2 -I src
 
 define_flags = -D WINDOWS
 
-endgoal: windowsout/cwingking.exe
+endgoal: windowsout/cwingking
 
-windowsout/cwingking.exe: $(o_files)
-	gcc -g -o windowsout/cwingking.exe $(o_files) -Lsrc/windows/SDL/lib -lmingw32 -lSDL2main -lSDL2
+windowsout/cwingking: $(o_files)
+	gcc -g -o windowsout/cwingking $(o_files) -Lsrc/windows/SDL/lib -lmingw32 -lSDL2main -lSDL2
 
 windowsout/%.o: %.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
@@ -30,7 +30,7 @@ windowsout/windows_delay.o: src/windows/windows_delay.c
 windowsout/windows_input.o: src/windows/windows_input.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
-windowsout/player.o: src/snake/player.c
+windowsout/player.o: src/objects/player.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
 windowsout/windows_init.o: src/windows/windows_init.c
@@ -39,7 +39,7 @@ windowsout/windows_init.o: src/windows/windows_init.c
 windowsout/windows_platform.o: src/windows/windows_platform.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
-windowsout/obstacle.o: src/snake/obstacle.c
+windowsout/obstacle.o: src/objects/obstacle.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
 windowsout/windows_asciidisplay.o: src/windows/windows_asciidisplay.c
@@ -51,14 +51,14 @@ windowsout/splashscreen.o: src/splashscreen.c
 windowsout/gameover_screen.o: src/gameover_screen.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
-windowsout/roof.o: src/snake/roof.c
+windowsout/roof.o: src/objects/roof.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
 
-windowsout/rope.o: src/snake/rope.c
+windowsout/rope.o: src/objects/rope.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
-windowsout/obstacle_manager.o: src/snake/obstacle_manager.c
+windowsout/obstacle_manager.o: src/objects/obstacle_manager.c
 	gcc -g -c $< $(define_flags) -o $@ $(h_includes)
 
 windowsout/rng.o: src/rng.c

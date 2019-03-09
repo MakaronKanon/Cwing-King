@@ -3,9 +3,6 @@
 #include "graphics.h"
 #include "asciidisplay.h"
 
-Obstacle obstacles[10];
-unsigned int numObstacles = 0;
-
 static void render(Obstacle *this)
 {
     for(int h = 0; h<this->height; h++) 
@@ -20,7 +17,7 @@ static void render(Obstacle *this)
 static void detectCollision(int x, int y, Obstacle* this, Player* player)
 {
     
-    if(((x <= (this->xPos + this->width)) && (x >= this->xPos)) && ((y <= this->yPos) && (y >= (this->yPos - this->height))))
+    if(((x <= (this->xPos + this->width)) && (x >= this->xPos)) && ((y <= this->yPos + this->height) && (y >= this->yPos)))
     {
 		player->dead = 1;
     } 
@@ -54,15 +51,3 @@ void initObstacle(Obstacle *current, int height, int x)
 	current->yPos = 0;
 
 } 
-
-void createObstacle(int x, int height)
-{
-    //start over if array is full. all obstical can be on scrren in the same time
-    if(numObstacles > sizeof(obstacles))
-    {
-        numObstacles = 0;
-    }
-        
-    initObstacle(&obstacles[numObstacles++], height, x);
-}
-

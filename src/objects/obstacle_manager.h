@@ -6,13 +6,10 @@
 // Update obstacles state
 void updateObstacles(Player* player);
 
-// Spawn a obstacle
-void spawnObstacle();
-
 // Render the obstacles
-void obstaclesRender();
+void renderObstacles();
 
 // Spawn initial obstacles
-void spawnInitialObstacles();
+void initObstacles();
 
 #endif //OBSTACLE_MANAGER_H

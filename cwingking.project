@@ -20,6 +20,18 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <VirtualDirectory Name="objects">
+      <File Name="src/objects/rope.h"/>
+      <File Name="src/objects/rope.c"/>
+      <File Name="src/objects/roof.h"/>
+      <File Name="src/objects/roof.c"/>
+      <File Name="src/objects/player.h"/>
+      <File Name="src/objects/player.c"/>
+      <File Name="src/objects/obstacle_manager.h"/>
+      <File Name="src/objects/obstacle_manager.c"/>
+      <File Name="src/objects/obstacle.h"/>
+      <File Name="src/objects/obstacle.c"/>
+    </VirtualDirectory>
     <File Name="src/snake/vec2i.h"/>
     <File Name="src/gameover_screen.c"/>
     <File Name="src/gameover_screen.h"/>
@@ -31,18 +43,6 @@
     <File Name="src/asciidisplay.h"/>
     <File Name="src/platform.h"/>
     <File Name="src/platform_init.h"/>
-    <VirtualDirectory Name="objects">
-      <File Name="src/snake/player.h"/>
-      <File Name="src/snake/player.c"/>
-      <File Name="src/snake/obstacle_manager.h"/>
-      <File Name="src/snake/obstacle_manager.c"/>
-      <File Name="src/snake/roof.h"/>
-      <File Name="src/snake/roof.c"/>
-      <File Name="src/snake/rope.h"/>
-      <File Name="src/snake/rope.c"/>
-      <File Name="src/snake/obstacle.h"/>
-      <File Name="src/snake/obstacle.c"/>
-    </VirtualDirectory>
     <File Name="src/keycodes.h"/>
     <File Name="src/input.h"/>
     <File Name="src/graphics.c"/>
@@ -91,7 +91,7 @@
         <IncludePath Value="src/md407"/>
         <IncludePath Value="src/md407/"/>
         <IncludePath Value="md407/"/>
-        <IncludePath Value="src/snake"/>
+        <IncludePath Value="src/objects"/>
         <IncludePath Value="src"/>
       </Compiler>
       <Linker Options="-T$(ProjectPath)/md407-ram.x;-L$(ARM_V6LIB) -L$(ARM_GCC_V6LIB);-nostartfiles" Required="yes">

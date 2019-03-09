@@ -29,7 +29,7 @@ void displayWelcomeImage()
 			{
 				if (byte & (1 << k))
 				{
-					setPixel(8 * x + k, y, 1);
+					setPixel(8 * x + k, startScreen_height-y, 1);
 				}
 			}
 		}

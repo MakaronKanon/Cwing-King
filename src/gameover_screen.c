@@ -31,7 +31,7 @@ void displayGameoverImage()
 			{
 				if (byte & (1 << k))
 				{
-					setPixel(8 * x + k + player.xDelta, y, 1);
+					setPixel(8 * x + k + player.xDelta, Gameover_height-y, 1);
 				}
 			}
 		}

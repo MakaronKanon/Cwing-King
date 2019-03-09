@@ -26,7 +26,7 @@ typedef struct tPlayer
 extern Player player;
 
 // Sets a snake to default values
-void initSnake(Player* player);
+void initPlayer(Player* player);
 
 // Makes snake bounce
 void bounce(Player* player);

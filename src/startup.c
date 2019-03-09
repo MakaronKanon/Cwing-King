@@ -33,8 +33,8 @@ void main(void)
 		initPlayer(&player);
 		initRope(&rope, &player, &roof);
         initRoof();
-		spawnInitialObstacles();
-
+		initObstacles();
+		
 		playonegame();
 	}
 	
@@ -85,6 +85,6 @@ static void render()
 	// Render all objects to buffer
 	player.render(&player);
 	rope.render(&rope);
-    obstaclesRender();
+    renderObstacles();
     renderRoof(&player);
 }

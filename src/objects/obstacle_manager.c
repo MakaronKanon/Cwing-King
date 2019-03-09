@@ -5,19 +5,23 @@
 #include "obstacle_manager.h"
 #include "rng.h"
 
-void spawnObstacle(int x)
+#define NUM_OBS 3
+Obstacle obstacles[NUM_OBS];
+
+void initObstacles()
 {
-    //min 16 max 36
-    //int hight = rand() % 20 + 16;
-	//int hight = 16;
-	int height = genRandomNum() % 20 + 16;
-    
-    createObstacle(x, height);
+	// create 2 obstacles
+	for (int i = 0; i < NUM_OBS; i++)
+	{
+		int height = genRandomNum() % 20 + 16;
+		int x = i * (128/NUM_OBS);
+		initObstacle(&obstacles[i], height, x);
+	}
 }
 
-void obstaclesRender()
+void renderObstacles()
 {
-    for(int i=0; i<numObstacles; ++i)
+    for(int i=0; i<NUM_OBS; ++i)
     {
         obstacles[i].render(&obstacles[i]);
     }
@@ -25,7 +29,7 @@ void obstaclesRender()
 
 void updateObstacles(Player* player)
 {
-	for(int i=0; i<numObstacles; ++i)
+	for(int i=0; i<NUM_OBS; ++i)
     {
 		if (obstacles[i].xPos < player->xPos - 15 )
 		{
@@ -33,17 +37,6 @@ void updateObstacles(Player* player)
 			obstacles[i].height = height;
 			obstacles[i].xPos += 128;
 		}
-			
         obstacles[i].update(&obstacles[i], player);
-		
     }
-}
-
-void spawnInitialObstacles()
-{
-	// create 2 obstacles
-	for (int i = 1; i < 3; i++)
-	{
-		spawnObstacle(i * 64);
-	}
 }
